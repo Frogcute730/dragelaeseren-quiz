@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-06-14",
+  "quizzes": [
+    {
+      "id": "quiz_tordenklo",
+      "titleKey": "tordenklos eventyr",
+      "bookTitle": "Tordenklos eventyr",
+      "coverEmoji": "🐉",
+      "description": "En drage der drømmer om store eventyr",
+      "source": "central",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvor boede dragen i begyndelsen?",
+          "options": [
+            "I en hule i bjergene",
+            "Dybt inde i skoven",
+            "På en ø i havet",
+            "I en gammel borg"
+          ],
+          "correct": 1,
+          "hint": "Tænk på det første afsnit i bogen...",
+          "explanation": "Dragen boede dybt inde i skoven!"
+        },
+        {
+          "id": "q2",
+          "type": "match",
+          "question": "Match karaktererne med deres egenskaber:",
+          "pairs": [
+            { "left": "Tordenklo", "right": "Modig drage" },
+            { "left": "Skovens vogter", "right": "Vis gammel ugle" },
+            { "left": "Ildfuglen", "right": "Hurtig budbringer" },
+            { "left": "Skyggekransen", "right": "Mystisk fjende" }
+          ],
+          "explanation": "Perfekt! Du kender alle karaktererne!"
+        },
+        {
+          "id": "q3",
+          "type": "choice",
+          "question": "Hvad drømte dragen om?",
+          "options": [
+            "At finde en skat",
+            "Store eventyr og fjerne lande",
+            "At finde mad til familien",
+            "At lære at flyve højere"
+          ],
+          "correct": 1,
+          "hint": "Hvad er det sædvanligvis unge drager drømmer om?",
+          "explanation": "Dragen drømte om store eventyr i fjerne lande!"
+        },
+        {
+          "id": "q4",
+          "type": "choice",
+          "question": "Hvad var det bedste ved historien? (Alle svar er rigtige!)",
+          "options": [
+            "Dragen var meget modig",
+            "Venskabet i historien",
+            "De spændende steder",
+            "Den sjove humor"
+          ],
+          "correct": -1,
+          "hint": null,
+          "explanation": "Super! Der er ingen forkerte svar her — det handler om hvad DU synes!"
+        }
+      ]
+    },
+    {
+      "id": "quiz_troldmand",
+      "titleKey": "den lille troldmand",
+      "bookTitle": "Den lille troldmand",
+      "coverEmoji": "🧙",
+      "description": "En troldmand lærer magi for første gang",
+      "source": "central",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad var troldmandens første trylleformular?",
+          "options": [
+            "At få blomster til at vokse",
+            "At fremkalde regn",
+            "At lave lys i mørket",
+            "At flyve på en kost"
+          ],
+          "correct": 2,
+          "hint": "Hvad gør man når det er mørkt?",
+          "explanation": "Den lille troldmands første trylleformular var at lave lys i mørket!"
+        },
+        {
+          "id": "q2",
+          "type": "match",
+          "question": "Match trylleformularen med hvad den gør:",
+          "pairs": [
+            { "left": "Lumos", "right": "Skaber lys" },
+            { "left": "Aqua", "right": "Fremkalder vand" },
+            { "left": "Flora", "right": "Får planter til at gro" }
+          ],
+          "explanation": "Du er en sand magi-ekspert!"
+        },
+        {
+          "id": "q3",
+          "type": "choice",
+          "question": "Hvad lærte du af historien om den lille troldmand?",
+          "options": [
+            "Man skal øve sig for at blive god",
+            "Magi er farligt",
+            "Venner hjælper hinanden",
+            "Det er ok at lave fejl"
+          ],
+          "correct": -1,
+          "hint": null,
+          "explanation": "Alle disse ting kan man lære af historien — godt tænkt!"
+        }
+      ]
+    }
+  ]
+}
