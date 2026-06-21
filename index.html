@@ -192,6 +192,8 @@
   <div class="card">
     <label for="fTitle">Bogtitel *</label>
     <input type="text" id="fTitle" placeholder="fx Os to, OSKAR ... for evigt">
+    <label for="fAuthor">Forfatter (valgfrit — hjælper appen med at finde den rigtige bog)</label>
+    <input type="text" id="fAuthor" placeholder="fx Bjarne Reuter">
     <div class="row">
       <div style="width:120px;">
         <label for="fEmoji">Emoji</label>
@@ -282,7 +284,7 @@ function newQuestion(type){
   if(type==="reflection") return { type:"reflection", question:"", explanation:"" };
   return { type:"choice", question:"", options:["",""], correct:0, hint:"", explanation:"" };
 }
-function newQuiz(){ return { bookTitle:"", coverEmoji:"📕", description:"", source:"central",
+function newQuiz(){ return { bookTitle:"", author:"", coverEmoji:"📕", description:"", source:"central",
   questions:[ newQuestion("choice") ] }; }
 function uniqueId(title){
   const ids=new Set((manifest.quizzes||[]).map(q=>q.id));
@@ -341,7 +343,7 @@ function renderList(){
     const meta=document.createElement("div"); meta.className="meta";
     const b=document.createElement("b"); b.textContent=q.bookTitle||"(uden titel)";
     const s=document.createElement("span");
-    s.textContent=(q.questions?q.questions.length:0)+" spørgsmål"+(q.description?" · "+q.description:"");
+    s.textContent=(q.questions?q.questions.length:0)+" spørgsmål"+(q.author?(" · "+q.author):"")+(q.description?(" · "+q.description):"");
     meta.appendChild(b); meta.appendChild(s);
     const exp=document.createElement("button"); exp.className="ghost small"; exp.textContent="📋 Kopiér";
     exp.title="Kopiér denne quiz som tekst"; exp.onclick=()=>exportQuiz(q);
@@ -402,7 +404,8 @@ function normQuestion(raw){
 }
 function prepImported(raw){
   raw=raw||{};
-  const q={ bookTitle:String(raw.bookTitle||"").trim(), coverEmoji:String(raw.coverEmoji||"📕"),
+  const q={ bookTitle:String(raw.bookTitle||"").trim(), author:String(raw.author||"").trim(),
+    coverEmoji:String(raw.coverEmoji||"📕"),
     description:String(raw.description||"").trim(), source:"central",
     questions:(Array.isArray(raw.questions)?raw.questions:[]).map(normQuestion) };
   q.titleKey=normalizeTitle(q.bookTitle);
@@ -413,7 +416,7 @@ function previewHtml(quizzes){
     const c={choice:0,match:0,reflection:0};
     (q.questions||[]).forEach(x=>{ const t=(x.type==="match"||x.type==="reflection")?x.type:"choice"; c[t]++; });
     const parts=[]; if(c.choice)parts.push(c.choice+" valg"); if(c.match)parts.push(c.match+" match"); if(c.reflection)parts.push(c.reflection+" refleksion");
-    return "<li><b>"+esc(q.bookTitle||"(uden titel)")+"</b> — "+(q.questions?q.questions.length:0)+" spørgsmål ("+parts.join(", ")+")</li>";
+    return "<li><b>"+esc(q.bookTitle||"(uden titel)")+"</b>"+(q.author?(' <span style="color:var(--muted)">af '+esc(q.author)+"</span>"):"")+" — "+(q.questions?q.questions.length:0)+" spørgsmål ("+parts.join(", ")+")</li>";
   }).join("")+"</ul></div>";
 }
 function errHtml(msg){ return '<div class="errbox">'+esc(msg)+"</div>"; }
@@ -441,6 +444,7 @@ function buildPrompt(title){
     +'Svar KUN med JSON (ingen tekst udenom), i dette format:\n\n'
     +'{\n  "schemaVersion": 1,\n  "quizzes": [\n    {\n'
     +'      "bookTitle": "'+(t||"[BOGENS TITEL]")+'",\n'
+    +'      "author": "forfatterens navn (eller tom hvis du er i tvivl)",\n'
     +'      "coverEmoji": "📖",\n      "description": "kort beskrivelse af bogen",\n      "source": "central",\n'
     +'      "questions": [\n'
     +'        { "type": "choice", "question": "...", "options": ["...","...","...","..."], "correct": 2, "hint": null, "explanation": "..." },\n'
@@ -449,6 +453,7 @@ function buildPrompt(title){
     +'      ]\n    }\n  ]\n}\n\n'
     +'Regler:\n'
     +'- "correct": tallet (0-3) på det rigtige svar, ELLER -1 hvis alle svar er rigtige (holdningsspørgsmål).\n'
+    +'- "author": find forfatteren ud fra bogtitlen. Er du i tvivl, lad feltet stå tomt ("") — bedre tomt end forkert.\n'
     +'- Sprog: dansk. Alder: 6-10 år. Tone: en nysgerrig drage.\n'
     +'- Vil du have dragen til at tale om sig selv ved navn, så skriv [dragenavn] i teksten — appen sætter selv barnets eget dragenavn ind. Skriv ALDRIG et bestemt navn.\n'
     +'- Antal: 3-4 spørgsmål, gerne ét "match" og ét med "correct": -1.\n\n'
@@ -467,6 +472,7 @@ function openEditor(index){
   $("editErrors").innerHTML="";
   $("fillCard").classList.add("hide"); $("fillText").value=""; $("fillPreview").innerHTML="";
   $("fTitle").value=draft.bookTitle||"";
+  $("fAuthor").value=draft.author||"";
   $("fEmoji").value=draft.coverEmoji||"";
   $("fDesc").value=draft.description||"";
   renderQuestions();
@@ -481,6 +487,7 @@ function closeEditor(){
 }
 function fillFormFromDraft(){
   $("fTitle").value=draft.bookTitle||"";
+  $("fAuthor").value=draft.author||"";
   $("fEmoji").value=draft.coverEmoji||"📕";
   $("fDesc").value=draft.description||"";
   renderQuestions();
@@ -592,6 +599,7 @@ function appendExtras(card,q,onlyExplanation){
 
 function saveQuiz(){
   draft.bookTitle=$("fTitle").value.trim();
+  draft.author=$("fAuthor").value.trim();
   draft.coverEmoji=$("fEmoji").value.trim()||"📕";
   draft.description=$("fDesc").value.trim();
   draft.questions.forEach(q=>{
