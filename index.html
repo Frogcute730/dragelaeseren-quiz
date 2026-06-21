@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DrageLæseren — Quiz-redaktør</title>
+<style>
+  :root{
+    --green:#1D9E75; --green-d:#0F6E56; --green-l:#E1F5EE;
+    --purple:#534AB7; --purple-l:#EEEDFE;
+    --amber:#EF9F27; --amber-l:#FFF3D6;
+    --red:#E24B4A; --red-l:#FCEBEB;
+    --text:#1A2E24; --muted:#6B8C78;
+    --bg:#F4FAF7; --card:#FFFFFF; --border:#E8EDE9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;padding:0 14px 80px;}
+  .wrap{max-width:760px;margin:0 auto;}
+  header{text-align:center;padding:28px 12px 10px;}
+  header h1{font-size:25px;margin:0 0 4px;}
+  header p{color:var(--muted);margin:0;font-size:14px;}
+  h2{font-size:19px;margin:26px 0 10px;border-bottom:2px solid var(--border);padding-bottom:7px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:16px 18px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+  label{display:block;font-size:13px;font-weight:600;color:var(--purple);margin:12px 0 4px;}
+  input[type=text],textarea,select{width:100%;padding:9px 11px;border:1px solid var(--border);
+    border-radius:9px;font-size:15px;font-family:inherit;background:#fff;color:var(--text);}
+  textarea{resize:vertical;min-height:46px;}
+  button{font-family:inherit;font-size:14px;font-weight:600;border:none;border-radius:10px;
+    padding:9px 16px;cursor:pointer;background:var(--green);color:#fff;}
+  button.sec{background:var(--purple-l);color:var(--purple);}
+  button.ghost{background:#EEF3F0;color:var(--text);}
+  button.danger{background:var(--red-l);color:var(--red);}
+  button.small{padding:5px 10px;font-size:13px;}
+  button:disabled{opacity:.45;cursor:not-allowed;}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .spacer{flex:1;}
+  .pill{display:inline-block;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;}
+  .pill.ok{background:var(--green-l);color:var(--green-d);}
+  .pill.no{background:var(--red-l);color:var(--red);}
+  .pill.warn{background:var(--amber-l);color:#9A6500;}
+  .quizrow{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--border);}
+  .quizrow:last-child{border-bottom:none;}
+  .quizrow .emoji{font-size:26px;}
+  .quizrow .meta{flex:1;min-width:0;}
+  .quizrow .meta b{display:block;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .quizrow .meta span{font-size:12.5px;color:var(--muted);}
+  .qcard{border:1px solid var(--border);border-radius:12px;padding:13px 15px;margin:12px 0;background:#FBFEFD;}
+  .qcard .qhead{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .qcard .qhead b{font-size:13px;color:var(--muted);}
+  .opt{display:flex;align-items:center;gap:8px;margin:6px 0;}
+  .opt input[type=text]{flex:1;}
+  .opt .corr{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);white-space:nowrap;}
+  .callout{border-left:4px solid var(--amber);background:var(--amber-l);border-radius:0 10px 10px 0;
+    padding:11px 14px;margin:12px 0;font-size:13.5px;}
+  .callout.green{border-left-color:var(--green);background:var(--green-l);}
+  .callout.red{border-left-color:var(--red);background:var(--red-l);}
+  .callout.purple{border-left-color:var(--purple);background:var(--purple-l);}
+  .callout b{display:block;margin-bottom:3px;}
+  code{background:#EEF3F0;padding:1px 6px;border-radius:5px;font-size:13px;}
+  a{color:var(--green-d);}
+  .errbox{background:var(--red-l);border:1px solid #F3C6C6;border-radius:10px;padding:10px 13px;margin:10px 0;font-size:13.5px;color:#A02A2A;}
+  .errbox ul{margin:5px 0 0;padding-left:18px;}
+  .hide{display:none;}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);
+    background:var(--text);color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;
+    box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:50;max-width:90%;}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:40px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>🐉 Quiz-redaktør</h1>
+  <p>Tilføj, ret og slet quizzer i den centrale database — uden kode.</p>
+</header>
+
+<!-- ── Forbindelse / nøgle ───────────────────────────────────────── -->
+<div class="card" id="tokenCard">
+  <div class="row">
+    <strong>Forbindelse:</strong>
+    <span id="connStatus" class="pill no">ingen nøgle</span>
+    <span class="spacer"></span>
+    <button class="ghost small" id="toggleToken">Indtast / skift nøgle</button>
+  </div>
+  <div id="tokenBox" class="hide">
+    <div class="callout purple" style="margin-top:12px;">
+      <b>🔑 Sådan laver du din engangs-nøgle (kun én gang)</b>
+      1) Åbn <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a><br>
+      2) <b>Repository access</b> → "Only select repositories" → vælg <code>dragelaeseren-quiz</code><br>
+      3) <b>Permissions</b> → Repository permissions → <b>Contents</b> → <b>Read and write</b><br>
+      4) Tryk "Generate token", kopiér den lange tekst, og indsæt den herunder.
+    </div>
+    <label for="tokenInput">Din nøgle (gemmes kun her i din browser)</label>
+    <input type="text" id="tokenInput" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
+    <div class="row" style="margin-top:10px;">
+      <button id="saveToken">Gem nøgle</button>
+      <button class="danger small" id="clearToken">Fjern nøgle fra denne browser</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Liste ─────────────────────────────────────────────────────── -->
+<div id="listView">
+  <h2>Quizzer i databasen</h2>
+  <div id="loadState" class="callout">Henter quizzer …</div>
+  <div class="card hide" id="listCard">
+    <div id="quizList"></div>
+  </div>
+  <div class="row" style="margin-top:14px;">
+    <button id="newQuizBtn">＋ Ny quiz</button>
+    <span class="spacer"></span>
+    <span id="dirtyPill" class="pill ok hide">ingen ugemte ændringer</span>
+    <button id="publishBtn" disabled>Udgiv til databasen</button>
+  </div>
+  <div class="callout" style="margin-top:14px;">
+    <b>💡 Sådan virker det</b>
+    Lav dine ændringer (tilføj/ret/slet). De er først gemt i databasen — og synlige i appen —
+    når du trykker <b>Udgiv til databasen</b>. Appen henter den nye version næste gang den åbnes.
+  </div>
+</div>
+
+<!-- ── Editor ────────────────────────────────────────────────────── -->
+<div id="editView" class="hide">
+  <h2 id="editTitle">Ny quiz</h2>
+  <div id="editErrors"></div>
+  <div class="card">
+    <label for="fTitle">Bogtitel *</label>
+    <input type="text" id="fTitle" placeholder="fx Os to, OSKAR ... for evigt">
+    <div class="row">
+      <div style="width:120px;">
+        <label for="fEmoji">Emoji</label>
+        <input type="text" id="fEmoji" maxlength="4" placeholder="📕">
+      </div>
+      <div style="flex:1;">
+        <label for="fDesc">Kort beskrivelse</label>
+        <input type="text" id="fDesc" placeholder="fx En dreng og hans løve">
+      </div>
+    </div>
+  </div>
+
+  <div id="questions"></div>
+
+  <div class="row" style="margin:8px 0 18px;">
+    <button class="sec" id="addQBtn">＋ Tilføj spørgsmål</button>
+  </div>
+
+  <div class="row">
+    <button id="saveQuizBtn">Gem quiz</button>
+    <button class="ghost" id="cancelEditBtn">Annullér</button>
+  </div>
+</div>
+
+<footer>DrageLæseren · Quiz-redaktør 🐉</footer>
+</div>
+
+<script>
+"use strict";
+
+const CFG = { owner:"Frogcute730", repo:"dragelaeseren-quiz", branch:"main", path:"quiz-manifest.json" };
+const API = "https://api.github.com/repos/"+CFG.owner+"/"+CFG.repo+"/contents/"+CFG.path;
+const TOKEN_KEY = "dragequiz_token";
+
+let manifest = null;   // { schemaVersion, version, quizzes:[] }
+let fileSha  = null;   // nuværende fil-sha (til opdatering)
+let dirty    = false;  // ugemte ændringer (endnu ikke udgivet)
+let draft    = null;   // quiz under redigering
+let editIndex= null;   // index i manifest.quizzes (null = ny)
+
+// ── små hjælpere ─────────────────────────────────────────────────
+const $ = (id)=>document.getElementById(id);
+function getToken(){ return localStorage.getItem(TOKEN_KEY) || ""; }
+function setToken(t){ t ? localStorage.setItem(TOKEN_KEY,t) : localStorage.removeItem(TOKEN_KEY); }
+function normalizeTitle(t){ return String(t||"").toLowerCase().replace(/\s+/g," ").trim(); }
+function slug(s){ return normalizeTitle(s).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,40) || "quiz"; }
+function b64encodeUtf8(str){ return btoa(unescape(encodeURIComponent(str))); }
+function b64decodeUtf8(b64){ return decodeURIComponent(escape(atob(String(b64).replace(/\s/g,"")))); }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg;
+  document.body.appendChild(t); setTimeout(()=>t.remove(),3800); }
+
+// ── validering (samme regler som appen) ──────────────────────────
+function questionErrors(q, n){
+  const e=[]; const lbl="Spørgsmål "+n+": ";
+  if(!q.question || !q.question.trim()) e.push(lbl+"mangler spørgsmålstekst.");
+  if(q.type==="reflection") return e;
+  if(q.type==="match"){
+    const pairs=(q.pairs||[]).filter(p=>(p.left||"").trim()&&(p.right||"").trim());
+    if(pairs.length<1) e.push(lbl+"match skal have mindst ét par (begge felter udfyldt).");
+    return e;
+  }
+  // choice
+  const opts=(q.options||[]).filter(o=>(o||"").trim());
+  if(opts.length<2) e.push(lbl+"multiple choice skal have mindst 2 svarmuligheder.");
+  if(q.correct!==-1 && (q.correct<0 || q.correct>=(q.options||[]).length))
+    e.push(lbl+"vælg hvilket svar der er rigtigt (eller 'alle rigtige').");
+  return e;
+}
+function quizErrors(quiz, label){
+  const e=[]; const pre=label?(label+": "):"";
+  if(!quiz.bookTitle || !quiz.bookTitle.trim()) e.push(pre+"mangler bogtitel.");
+  if(!quiz.questions || quiz.questions.length<1) e.push(pre+"skal have mindst ét spørgsmål.");
+  (quiz.questions||[]).forEach((q,i)=>questionErrors(q,i+1).forEach(m=>e.push(pre+m)));
+  return e;
+}
+
+// ── data-skabeloner ──────────────────────────────────────────────
+function newQuestion(type){
+  if(type==="match") return { type:"match", question:"", pairs:[{left:"",right:""}], explanation:"" };
+  if(type==="reflection") return { type:"reflection", question:"", explanation:"" };
+  return { type:"choice", question:"", options:["",""], correct:0, hint:"", explanation:"" };
+}
+function newQuiz(){ return { bookTitle:"", coverEmoji:"📕", description:"", source:"central",
+  questions:[ newQuestion("choice") ] }; }
+function uniqueId(title){
+  const ids=new Set((manifest.quizzes||[]).map(q=>q.id));
+  if(editIndex!=null && manifest.quizzes[editIndex]) ids.delete(manifest.quizzes[editIndex].id);
+  let base="q_"+slug(title), id=base, n=2;
+  while(ids.has(id)) id=base+"_"+(n++);
+  return id;
+}
+
+// ── markér ændringer ─────────────────────────────────────────────
+function setDirty(v){
+  dirty=v;
+  const p=$("dirtyPill");
+  if(v){ p.className="pill warn"; p.textContent="ugemte ændringer (ikke udgivet)"; }
+  else { p.className="pill ok"; p.textContent="alt er udgivet"; }
+  p.classList.remove("hide");
+  $("publishBtn").disabled = !v;
+}
+
+// ── hente manifest ───────────────────────────────────────────────
+async function loadManifest(){
+  $("loadState").classList.remove("hide");
+  $("loadState").textContent="Henter quizzer …";
+  $("listCard").classList.add("hide");
+  try{
+    const headers={ "Accept":"application/vnd.github+json" };
+    const tok=getToken(); if(tok) headers["Authorization"]="Bearer "+tok;
+    const res=await fetch(API+"?ref="+CFG.branch, { headers, cache:"no-store" });
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const data=await res.json();
+    fileSha=data.sha;
+    manifest=JSON.parse(b64decodeUtf8(data.content));
+    if(typeof manifest!=="object"||manifest===null) manifest={};
+    if(typeof manifest.schemaVersion!=="number") manifest.schemaVersion=1;
+    if(!Array.isArray(manifest.quizzes)) manifest.quizzes=[];
+    setDirty(false);
+    renderList();
+  }catch(err){
+    $("loadState").className="errbox";
+    $("loadState").textContent="Kunne ikke hente quizzerne ("+err.message+"). Tjek din internetforbindelse og prøv at genindlæse siden.";
+  }
+}
+
+// ── liste ────────────────────────────────────────────────────────
+function renderList(){
+  $("loadState").classList.add("hide");
+  $("listCard").classList.remove("hide");
+  const box=$("quizList"); box.innerHTML="";
+  if(!manifest.quizzes.length){
+    box.innerHTML='<div style="color:var(--muted);padding:8px 0;">Ingen quizzer endnu. Tryk “＋ Ny quiz”.</div>';
+    return;
+  }
+  manifest.quizzes.forEach((q,i)=>{
+    const row=document.createElement("div"); row.className="quizrow";
+    const em=document.createElement("div"); em.className="emoji"; em.textContent=q.coverEmoji||"📕";
+    const meta=document.createElement("div"); meta.className="meta";
+    const b=document.createElement("b"); b.textContent=q.bookTitle||"(uden titel)";
+    const s=document.createElement("span");
+    s.textContent=(q.questions?q.questions.length:0)+" spørgsmål"+(q.description?" · "+q.description:"");
+    meta.appendChild(b); meta.appendChild(s);
+    const edit=document.createElement("button"); edit.className="sec small"; edit.textContent="Rediger";
+    edit.onclick=()=>openEditor(i);
+    const del=document.createElement("button"); del.className="danger small"; del.textContent="Slet";
+    del.onclick=()=>{
+      if(confirm('Slet quizzen til "'+(q.bookTitle||"")+'"?\n\n(Først væk fra databasen når du trykker Udgiv.)')){
+        manifest.quizzes.splice(i,1); setDirty(true); renderList();
+      }
+    };
+    row.appendChild(em); row.appendChild(meta); row.appendChild(edit); row.appendChild(del);
+    box.appendChild(row);
+  });
+}
+
+// ── editor ───────────────────────────────────────────────────────
+function openEditor(index){
+  editIndex = (index==null? null : index);
+  draft = JSON.parse(JSON.stringify(index==null ? newQuiz() : manifest.quizzes[index]));
+  if(!draft.coverEmoji) draft.coverEmoji="📕";
+  if(!Array.isArray(draft.questions)||!draft.questions.length) draft.questions=[newQuestion("choice")];
+  $("editTitle").textContent = index==null ? "Ny quiz" : "Rediger quiz";
+  $("editErrors").innerHTML="";
+  $("fTitle").value=draft.bookTitle||"";
+  $("fEmoji").value=draft.coverEmoji||"";
+  $("fDesc").value=draft.description||"";
+  renderQuestions();
+  $("listView").classList.add("hide");
+  $("editView").classList.remove("hide");
+  window.scrollTo(0,0);
+}
+function closeEditor(){
+  draft=null; editIndex=null;
+  $("editView").classList.add("hide");
+  $("listView").classList.remove("hide");
+}
+
+function renderQuestions(){
+  const box=$("questions"); box.innerHTML="";
+  draft.questions.forEach((q,qi)=>box.appendChild(renderQuestion(q,qi)));
+}
+
+function renderQuestion(q, qi){
+  const card=document.createElement("div"); card.className="qcard";
+
+  const head=document.createElement("div"); head.className="qhead";
+  const tag=document.createElement("b"); tag.textContent="Spørgsmål "+(qi+1);
+  const sel=document.createElement("select"); sel.style.width="auto";
+  [["choice","Multiple choice"],["match","Match-par"],["reflection","Refleksion (frit svar)"]]
+    .forEach(([v,t])=>{ const o=document.createElement("option"); o.value=v; o.textContent=t;
+      if((q.type||"choice")===v)o.selected=true; sel.appendChild(o); });
+  sel.onchange=()=>{ const keepQ=q.question; draft.questions[qi]=newQuestion(sel.value);
+    draft.questions[qi].question=keepQ; setDirty(true); renderQuestions(); };
+  const spacer=document.createElement("span"); spacer.className="spacer";
+  const rm=document.createElement("button"); rm.className="danger small"; rm.textContent="Fjern";
+  rm.onclick=()=>{ if(draft.questions.length<=1){ alert("En quiz skal have mindst ét spørgsmål."); return; }
+    draft.questions.splice(qi,1); setDirty(true); renderQuestions(); };
+  head.appendChild(tag); head.appendChild(sel); head.appendChild(spacer); head.appendChild(rm);
+  card.appendChild(head);
+
+  const qt=document.createElement("textarea"); qt.placeholder="Skriv spørgsmålet …"; qt.value=q.question||"";
+  qt.oninput=()=>{ q.question=qt.value; setDirty(true); };
+  const ql=document.createElement("label"); ql.textContent="Spørgsmål";
+  card.appendChild(ql); card.appendChild(qt);
+
+  if((q.type||"choice")==="choice"){
+    const ol=document.createElement("label"); ol.textContent="Svarmuligheder (vælg den rigtige)";
+    card.appendChild(ol);
+    q.options.forEach((opt,oi)=>{
+      const row=document.createElement("div"); row.className="opt";
+      const radio=document.createElement("input"); radio.type="radio"; radio.name="corr_"+qi;
+      radio.checked=(q.correct===oi); radio.disabled=(q.correct===-1);
+      radio.onchange=()=>{ q.correct=oi; setDirty(true); };
+      const txt=document.createElement("input"); txt.type="text"; txt.value=opt; txt.placeholder="Svar "+(oi+1);
+      txt.oninput=()=>{ q.options[oi]=txt.value; setDirty(true); };
+      const del=document.createElement("button"); del.className="ghost small"; del.textContent="✕";
+      del.onclick=()=>{ if(q.options.length<=2){ alert("Mindst 2 svarmuligheder."); return; }
+        q.options.splice(oi,1); if(q.correct>=q.options.length)q.correct=0; setDirty(true); renderQuestions(); };
+      const wrap=document.createElement("span"); wrap.className="corr"; wrap.appendChild(radio);
+      row.appendChild(wrap); row.appendChild(txt); row.appendChild(del);
+      card.appendChild(row);
+    });
+    const addopt=document.createElement("button"); addopt.className="ghost small"; addopt.textContent="＋ Svarmulighed";
+    addopt.style.marginTop="4px";
+    addopt.onclick=()=>{ if(q.options.length>=6){ alert("Højst 6 svarmuligheder."); return; }
+      q.options.push(""); setDirty(true); renderQuestions(); };
+    card.appendChild(addopt);
+
+    const allrow=document.createElement("div"); allrow.className="opt"; allrow.style.marginTop="8px";
+    const allcb=document.createElement("input"); allcb.type="checkbox"; allcb.checked=(q.correct===-1);
+    allcb.onchange=()=>{ q.correct = allcb.checked ? -1 : 0; setDirty(true); renderQuestions(); };
+    const alllbl=document.createElement("span"); alllbl.className="corr";
+    alllbl.textContent="Alle svar er rigtige (holdnings-/refleksionsspørgsmål)";
+    allrow.appendChild(allcb); allrow.appendChild(alllbl);
+    card.appendChild(allrow);
+
+    appendExtras(card,q);
+  } else if((q.type||"choice")==="match"){
+    const ml=document.createElement("label"); ml.textContent="Par (venstre hører sammen med højre)";
+    card.appendChild(ml);
+    q.pairs.forEach((p,pi)=>{
+      const row=document.createElement("div"); row.className="opt";
+      const left=document.createElement("input"); left.type="text"; left.value=p.left; left.placeholder="Venstre";
+      left.oninput=()=>{ p.left=left.value; setDirty(true); };
+      const arrow=document.createElement("span"); arrow.textContent="↔"; arrow.style.color="var(--muted)";
+      const right=document.createElement("input"); right.type="text"; right.value=p.right; right.placeholder="Højre";
+      right.oninput=()=>{ p.right=right.value; setDirty(true); };
+      const del=document.createElement("button"); del.className="ghost small"; del.textContent="✕";
+      del.onclick=()=>{ if(q.pairs.length<=1){ alert("Mindst ét par."); return; }
+        q.pairs.splice(pi,1); setDirty(true); renderQuestions(); };
+      row.appendChild(left); row.appendChild(arrow); row.appendChild(right); row.appendChild(del);
+      card.appendChild(row);
+    });
+    const addp=document.createElement("button"); addp.className="ghost small"; addp.textContent="＋ Par";
+    addp.style.marginTop="4px";
+    addp.onclick=()=>{ if(q.pairs.length>=6){ alert("Højst 6 par."); return; }
+      q.pairs.push({left:"",right:""}); setDirty(true); renderQuestions(); };
+    card.appendChild(addp);
+    appendExtras(card,q,true);
+  } else {
+    const info=document.createElement("div"); info.className="callout green"; info.style.margin="8px 0 0";
+    info.innerHTML="<b>Refleksion</b>Barnet skriver (eller taler) sit eget svar. Der er ingen rigtige/forkerte — det handler om at fortælle om bogen.";
+    card.appendChild(info);
+    appendExtras(card,q,true);
+  }
+  return card;
+}
+
+function appendExtras(card,q,onlyExplanation){
+  if(!onlyExplanation){
+    const hl=document.createElement("label"); hl.textContent="Hjælp/hint (valgfrit)";
+    const hi=document.createElement("input"); hi.type="text"; hi.value=q.hint||""; hi.placeholder="fx Tænk på første kapitel …";
+    hi.oninput=()=>{ q.hint=hi.value; setDirty(true); };
+    card.appendChild(hl); card.appendChild(hi);
+  }
+  const el=document.createElement("label"); el.textContent="Forklaring efter svar (valgfrit)";
+  const ei=document.createElement("input"); ei.type="text"; ei.value=q.explanation||""; ei.placeholder="fx Flot! Det var netop …";
+  ei.oninput=()=>{ q.explanation=ei.value; setDirty(true); };
+  card.appendChild(el); card.appendChild(ei);
+}
+
+function saveQuiz(){
+  draft.bookTitle=$("fTitle").value.trim();
+  draft.coverEmoji=$("fEmoji").value.trim()||"📕";
+  draft.description=$("fDesc").value.trim();
+  // ryd tomme svar/par
+  draft.questions.forEach(q=>{
+    if(q.type==="choice"){ q.options=q.options.map(o=>o.trim()).filter(o=>o!==""); if(q.options.length<2){/* fanges af validering */} }
+    if(q.type==="match"){ q.pairs=q.pairs.filter(p=>(p.left||"").trim()||(p.right||"").trim()); }
+  });
+  const errs=quizErrors(draft);
+  if(errs.length){
+    $("editErrors").innerHTML='<div class="errbox"><b>Ret lige dette først:</b><ul>'+
+      errs.map(e=>"<li>"+e.replace(/</g,"&lt;")+"</li>").join("")+"</ul></div>";
+    window.scrollTo(0,0);
+    return;
+  }
+  // ids
+  draft.id = (editIndex!=null && manifest.quizzes[editIndex] ? manifest.quizzes[editIndex].id : null) || uniqueId(draft.bookTitle);
+  if(editIndex==null) draft.id=uniqueId(draft.bookTitle);
+  draft.titleKey=normalizeTitle(draft.bookTitle);
+  draft.source="central";
+  draft.questions.forEach((q,i)=>{ q.id="q"+(i+1); });
+  if(editIndex==null) manifest.quizzes.push(draft);
+  else manifest.quizzes[editIndex]=draft;
+  setDirty(true);
+  closeEditor();
+  renderList();
+}
+
+// ── udgiv ────────────────────────────────────────────────────────
+async function publish(){
+  const tok=getToken();
+  if(!tok){ toast("Indtast først din nøgle (øverst)."); $("tokenBox").classList.remove("hide"); window.scrollTo(0,0); return; }
+  const errs=[];
+  manifest.quizzes.forEach((q,i)=>quizErrors(q, (q.bookTitle||("Quiz "+(i+1)))).forEach(e=>errs.push(e)));
+  if(errs.length){ alert("Kan ikke udgive — ret først:\n\n"+errs.join("\n")); return; }
+
+  $("publishBtn").disabled=true; $("publishBtn").textContent="Udgiver …";
+  manifest.version=new Date().toISOString();
+  if(typeof manifest.schemaVersion!=="number") manifest.schemaVersion=1;
+
+  const body={
+    message:"Opdater quizzer via redaktoer ("+new Date().toLocaleString("da-DK")+")",
+    content:b64encodeUtf8(JSON.stringify(manifest,null,2)),
+    sha:fileSha, branch:CFG.branch
+  };
+  try{
+    let res=await fetch(API,{ method:"PUT",
+      headers:{ "Authorization":"Bearer "+tok, "Accept":"application/vnd.github+json" },
+      body:JSON.stringify(body) });
+    if(res.status===409){
+      await loadManifest();
+      toast("Databasen var ændret et andet sted — jeg har hentet den nyeste. Tjek og prøv Udgiv igen.");
+      $("publishBtn").textContent="Udgiv til databasen"; return;
+    }
+    if(res.status===401||res.status===403){
+      alert("Nøglen blev afvist. Tjek at den er kopieret rigtigt, og at den har adgang til 'dragelaeseren-quiz' med Contents = Read and write.");
+      $("publishBtn").disabled=false; $("publishBtn").textContent="Udgiv til databasen"; return;
+    }
+    if(!res.ok){ const e=await res.json().catch(()=>({}));
+      alert("Kunne ikke udgive: "+(e.message||("HTTP "+res.status)));
+      $("publishBtn").disabled=false; $("publishBtn").textContent="Udgiv til databasen"; return; }
+    const data=await res.json();
+    fileSha=data.content.sha;
+    setDirty(false);
+    $("publishBtn").textContent="Udgiv til databasen";
+    toast("✅ Udgivet! Appen henter den nye version næste gang den åbnes.");
+  }catch(err){
+    alert("Noget gik galt under udgivelsen: "+err.message);
+    $("publishBtn").disabled=false; $("publishBtn").textContent="Udgiv til databasen";
+  }
+}
+
+// ── nøgle-UI ─────────────────────────────────────────────────────
+function refreshConn(){
+  const has=!!getToken();
+  const s=$("connStatus");
+  s.className="pill "+(has?"ok":"no");
+  s.textContent=has?"nøgle gemt":"ingen nøgle";
+}
+
+// ── opsætning ────────────────────────────────────────────────────
+$("toggleToken").onclick=()=>$("tokenBox").classList.toggle("hide");
+$("saveToken").onclick=()=>{ const v=$("tokenInput").value.trim();
+  if(!v){ toast("Indsæt nøglen først."); return; }
+  setToken(v); $("tokenInput").value=""; $("tokenBox").classList.add("hide");
+  refreshConn(); toast("Nøgle gemt i denne browser."); };
+$("clearToken").onclick=()=>{ setToken(""); refreshConn(); toast("Nøgle fjernet."); };
+$("newQuizBtn").onclick=()=>openEditor(null);
+$("cancelEditBtn").onclick=()=>{ if(confirm("Kassér ændringerne i denne quiz?")) closeEditor(); };
+$("saveQuizBtn").onclick=saveQuiz;
+$("addQBtn").onclick=()=>{ draft.questions.push(newQuestion("choice")); setDirty(true); renderQuestions(); };
+$("publishBtn").onclick=publish;
+window.addEventListener("beforeunload",(e)=>{ if(dirty){ e.preventDefault(); e.returnValue=""; } });
+
+refreshConn();
+loadManifest();
+</script>
+</body>
+</html>
