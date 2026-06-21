@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026-06-14",
+  "version": "2026-06-21T16:27:12.357Z",
   "quizzes": [
     {
       "id": "quiz_tordenklo",
@@ -29,10 +29,22 @@
           "type": "match",
           "question": "Match karaktererne med deres egenskaber:",
           "pairs": [
-            { "left": "Tordenklo", "right": "Modig drage" },
-            { "left": "Skovens vogter", "right": "Vis gammel ugle" },
-            { "left": "Ildfuglen", "right": "Hurtig budbringer" },
-            { "left": "Skyggekransen", "right": "Mystisk fjende" }
+            {
+              "left": "Tordenklo",
+              "right": "Modig drage"
+            },
+            {
+              "left": "Skovens vogter",
+              "right": "Vis gammel ugle"
+            },
+            {
+              "left": "Ildfuglen",
+              "right": "Hurtig budbringer"
+            },
+            {
+              "left": "Skyggekransen",
+              "right": "Mystisk fjende"
+            }
           ],
           "explanation": "Perfekt! Du kender alle karaktererne!"
         },
@@ -93,9 +105,18 @@
           "type": "match",
           "question": "Match trylleformularen med hvad den gør:",
           "pairs": [
-            { "left": "Lumos", "right": "Skaber lys" },
-            { "left": "Aqua", "right": "Fremkalder vand" },
-            { "left": "Flora", "right": "Får planter til at gro" }
+            {
+              "left": "Lumos",
+              "right": "Skaber lys"
+            },
+            {
+              "left": "Aqua",
+              "right": "Fremkalder vand"
+            },
+            {
+              "left": "Flora",
+              "right": "Får planter til at gro"
+            }
           ],
           "explanation": "Du er en sand magi-ekspert!"
         },
@@ -114,6 +135,420 @@
           "explanation": "Alle disse ting kan man lære af historien — godt tænkt!"
         }
       ]
+    },
+    {
+      "bookTitle": "Dengang Sallys far var dreng (2015)",
+      "author": "Thomas Brunstrøm",
+      "isbn": "",
+      "coverEmoji": "👨",
+      "description": "Sallys far fortæller vilde historier om, hvor sygt hårdt det var, dengang han var barn. Men taler han nu også helt sandt? [dragenavn] vil vildt gerne vide det!",
+      "source": "central",
+      "questions": [
+        {
+          "type": "choice",
+          "question": "Hvad gør Sallys far, når Sally og hendes bror brokker sig?",
+          "options": [
+            "Han giver dem slik og lommepenge",
+            "Han fortæller vilde historier om, da han selv var dreng",
+            "Han læser en kedelig bog højt",
+            "Han tager dem med i biografen"
+          ],
+          "correct": 1,
+          "hint": "Han elsker at fortælle om, hvor hårdt han selv havde det i gamle dage!",
+          "explanation": "Sallys far fortæller altid historier om, at han gik 14 kilometer til skole i bare tæer, og at han kun fik sild i fødselsdagsgave.",
+          "id": "q1"
+        },
+        {
+          "type": "match",
+          "question": "Hjælp [dragenavn] med at parre Sallys fars vilde historier med, hvad han påstår, han gjorde!",
+          "pairs": [
+            {
+              "left": "Turen til skole",
+              "right": "Gik 14 kilometer i bare tæer"
+            },
+            {
+              "left": "Fødselsdagsgave",
+              "right": "Fik kun en enkelt sild"
+            },
+            {
+              "left": "Legetøj",
+              "right": "Legede med en gammel papkasse"
+            }
+          ],
+          "explanation": "Sallys far overdriver helt vildt, når han fortæller om sin barndom!",
+          "id": "q2"
+        },
+        {
+          "type": "choice",
+          "question": "Tror du overhovedet på de ting, som Sallys far fortæller? [dragenavn] synes, det lyder liiiidt skørt!",
+          "options": [
+            "Ja, det var helt sikkert megahårdt i gamle dage!",
+            "Nej, han finder helt sikkert på det hele for at drille!",
+            "Noget af det er nok rigtigt, men han overdriver meget",
+            "Jeg tror faktisk, han glemmer, hvordan det rigtigt var"
+          ],
+          "correct": -1,
+          "hint": "",
+          "explanation": "[dragenavn] synes også, det er svært at vide! Det er sjovt at tænke på, hvad der er sandt, og hvad der er pure opspind.",
+          "id": "q3"
+        },
+        {
+          "type": "reflection",
+          "question": "Fortæl med dine egne ord, hvad din egen far eller mor har fortalt om, dengang DE var børn. Var det lige så skørt som Sallys fars historier? [dragenavn] lytter spændt!",
+          "explanation": "",
+          "id": "q4"
+        }
+      ],
+      "titleKey": "dengang sallys far var dreng (2015)",
+      "id": "q_dengang-sallys-far-var-dreng-2015"
+    },
+    {
+      "bookTitle": "Sallys far har mandeinfluenza (2020)",
+      "author": "Thomas Brunstrøm",
+      "isbn": "",
+      "coverEmoji": "🤒",
+      "description": "Sallys far bliver ramt af den frygtede 'mandeinfluenza'. Han pylrer helt vildt og tror næsten, han skal dø! Mon [dragenavn] kan hjælpe med at finde ud af, om det virkeligt er så slemt?",
+      "source": "central",
+      "questions": [
+        {
+          "type": "choice",
+          "question": "Hvordan opfører Sallys far sig, når han får mandeinfluenza?",
+          "options": [
+            "Han rydder op på hele sit værelse og laver mad",
+            "Han pylrer helt vildt og synes, det er MEGET synd for ham",
+            "Han tager i svømmehallen for at få det bedre",
+            "Han lader som ingenting og tager på arbejde"
+          ],
+          "correct": 1,
+          "hint": "Han synes selv, han er den sygeste person i hele verden!",
+          "explanation": "Når fædre får mandeinfluenza, så pylrer de ofte rigtig meget og vil gerne have, at alle passer på dem.",
+          "id": "q1"
+        },
+        {
+          "type": "match",
+          "question": "Hjælp [dragenavn] med at huske, hvad Sallys far har brug for, når han er 'alvorligt' syg!",
+          "pairs": [
+            {
+              "left": "Placering",
+              "right": "Ligger ynkeligt på sofaen"
+            },
+            {
+              "left": "Opførsel",
+              "right": "Pylrer og klager sig højt"
+            },
+            {
+              "left": "Behandling",
+              "right": "Vil opvartes i hoved og røv"
+            }
+          ],
+          "explanation": "Sallys far gør et kæmpe nummer ud af at være en lille smule forkølet!",
+          "id": "q2"
+        },
+        {
+          "type": "choice",
+          "question": "Hvem tror du, har det hårdest, når Sallys far er syg? [dragenavn] har sin helt egen idé!",
+          "options": [
+            "Sallys far, for han er jo MEGET tæt på at dø!",
+            "Resten af familien, fordi de skal høre på hans brok hele tiden",
+            "Lægen, som skal undersøge ham",
+            "Ingen, det er bare super hyggeligt"
+          ],
+          "correct": -1,
+          "hint": "",
+          "explanation": "Alle svar kan være rigtige! Men de fleste synes nok, det er ret hårdt for Sally og hendes mor at høre på alt det pylr.",
+          "id": "q3"
+        },
+        {
+          "type": "reflection",
+          "question": "Hvordan opfører de voksne hjemme hos dig sig, når de bliver syge? Pylrer de lige så meget som Sallys far, eller er de seje? Fortæl [dragenavn] om det!",
+          "explanation": "",
+          "id": "q4"
+        }
+      ],
+      "titleKey": "sallys far har mandeinfluenza (2020)",
+      "id": "q_sallys-far-har-mandeinfluenza-2020"
+    },
+    {
+      "bookTitle": "Sallys far er en dårlig taber (2020)",
+      "author": "Thomas Brunstrøm",
+      "isbn": "",
+      "coverEmoji": "🎲",
+      "description": "Sallys far ELSKER at vinde, men han er simpelthen den værste taber i hele verden! Når han taber i spil, snyder han eller bliver megasur. Mon [dragenavn] kan lære ham at tabe med et smil?",
+      "source": "central",
+      "questions": [
+        {
+          "type": "choice",
+          "question": "Hvad gør Sallys far, hvis han er ved at tabe i et spil?",
+          "options": [
+            "Han siger 'pyt' og bager en kage til vinderen",
+            "Han begynder at snyde, lave reglerne om eller bliver vildt sur",
+            "Han pakker spillet pænt sammen og går i seng",
+            "Han giver sine brikker væk til Sally"
+          ],
+          "correct": 1,
+          "hint": "Han vil gøre næsten HVD SOM HELST for ikke at tabe!",
+          "explanation": "Sallys far er en rigtig dårlig taber. Han kan finde på at snyde eller råbe, fordi han ikke kan tåle, at børnene vinder over ham.",
+          "id": "q1"
+        },
+        {
+          "type": "match",
+          "question": "Hjælp [dragenavn] med at sætte streg mellem, hvordan man er en god taber, og hvordan Sallys far opfører sig!",
+          "pairs": [
+            {
+              "left": "En god taber",
+              "right": "Siger tillykke til vinderen og smiler"
+            },
+            {
+              "left": "Sallys far",
+              "right": "Bliver sur, snyder og laver reglerne om"
+            },
+            {
+              "left": "En god vinder",
+              "right": "Jubler uden at drille de andre"
+            }
+          ],
+          "explanation": "Det er vigtigt at være en god taber, men Sallys far skal vist øve sig rigtig, rigtig meget endnu!",
+          "id": "q2"
+        },
+        {
+          "type": "choice",
+          "question": "Hvad synes du er det mest irriterende, man kan gøre, når man taber i et spil? [dragenavn] vil vildt gerne høre din mening!",
+          "options": [
+            "At man kaster med brikkerne og spillet",
+            "At man bliver sur og nægter at spille videre",
+            "At man snyder for at vinde til sidst",
+            "At man begynder at græde eller råbe højt"
+          ],
+          "correct": -1,
+          "hint": "",
+          "explanation": "Alle tingene er super irriterende! Det vigtigste er jo bare, at man har det sjovt, når man spiller sammen.",
+          "id": "q3"
+        },
+        {
+          "type": "reflection",
+          "question": "Kender du en, der er en dårlig taber – måske din far, din søster eller dig selv? Fortæl [dragenavn] om en gang, hvor et spil endte med, at en blev megasur!",
+          "explanation": "",
+          "id": "q4"
+        }
+      ],
+      "titleKey": "sallys far er en dårlig taber (2020)",
+      "id": "q_sallys-far-er-en-d-rlig-taber-2020"
+    },
+    {
+      "bookTitle": "Harry Potter 4",
+      "author": "J.K. Rowling",
+      "isbn": "",
+      "coverEmoji": "🏆",
+      "description": "Harry Potter skal gå på sit fjerde år på Hogwarts, og denne gang sker der noget helt vildt: Turneringen i Magisk Trekamp! Mon [dragenavn] og Harry kan klare de farlige udfordringer?",
+      "source": "central",
+      "questions": [
+        {
+          "type": "choice",
+          "question": "Hvilken stor og farlig konkurrence bliver holdt på Hogwarts i denne bog?",
+          "options": [
+            "Det Store Verdensmesterskab i Quidditch",
+            "Turneringen i Magisk Trekamp",
+            "Den Store Bagedyst for Troldmænd",
+            "Hogwarts' Skakmesterskab"
+          ],
+          "correct": 1,
+          "hint": "Det er en gammel turnering, hvor tre forskellige magiske skoler kæmper mod hinanden!",
+          "explanation": "Det er Turneringen i Magisk Trekamp, hvor tre champions normalt dyster, men i år sker der noget mærkeligt, så Harry også skal være med.",
+          "id": "q1"
+        },
+        {
+          "type": "choice",
+          "question": "Hvad hedder den magiske genstand, som vælger, hvem der skal være med i turneringen?",
+          "options": [
+            "Det Magiske Spejl",
+            "Fordelingshatten",
+            "Flammernes Pokal",
+            "Albus Dumbledores tryllestav"
+          ],
+          "correct": 2,
+          "hint": "Den er lavet af træ, og der kommer store, blå flammer op af den!",
+          "explanation": "Det er Flammernes Pokal! Selvom Harry er for ung og ikke har meldt sig, spytter pokalen pludselig hans navn ud.",
+          "id": "q2"
+        },
+        {
+          "type": "match",
+          "question": "Hjælp [dragenavn] med at huske, hvad deltagerne mødte i de tre svære opgaver!",
+          "pairs": [
+            {
+              "left": "Første opgave",
+              "right": "At stjæle et guldæg fra en rigtig drage"
+            },
+            {
+              "left": "Anden opgave",
+              "right": "At svømme dybt ned i Den Sorte Sø"
+            },
+            {
+              "left": "Tredje opgave",
+              "right": "At finde vej gennem en kæmpe, levende labyrint"
+            }
+          ],
+          "explanation": "Deltagerne skulle igennem tre vildt farlige opgaver: først drager, så søen og til sidst den uhyggelige labyrint!",
+          "id": "q3"
+        },
+        {
+          "type": "choice",
+          "question": "Hvilket magisk væsen skulle Harry kæmpe mod i den allerførste opgave? [dragenavn] håber ikke, det var en sød en som mig!",
+          "options": [
+            "En gigantisk edderkop",
+            "En ungarsk takhale-drage",
+            "En trehovedet hund",
+            "En sur kentaur"
+          ],
+          "correct": 1,
+          "hint": "Det er en af de allerfarligste drager, der findes, og den kan spy ild!",
+          "explanation": "Harry trak den ungarske takhale, som er en super farlig drage! Han brugte sin fejekost til at flyve hurtigt udenom den.",
+          "id": "q4"
+        },
+        {
+          "type": "choice",
+          "question": "Hvilken af de tre opgaver i Trekampen tror du, ville være den allerfarligste for dig at prøve? [dragenavn] er spændt på dit svar!",
+          "options": [
+            "At stjæle et æg fra en stor, ildspyende drage",
+            "At svømme rundt under vandet i en time hos dyndfolket",
+            "At gå ind i en mørk labyrint fuld af monstre og gåder",
+            "Jeg synes faktisk, de alle tre lyder lige uhyggelige!"
+          ],
+          "correct": -1,
+          "hint": "",
+          "explanation": "Uanset hvad du vælger, har du helt ret! De voksne troldmænd havde nemlig også lovet, at turneringen ville blive meget sikrere i år, men det passede vist ikke helt.",
+          "id": "q5"
+        },
+        {
+          "type": "choice",
+          "question": "Hvem møder Harry i slutningen af labyrinten, da han rører ved Trekampspokalen?",
+          "options": [
+            "Sirius Black, som vil give ham et kram",
+            "Lord Voldemort, som har fået sin krop tilbage",
+            "Professor Snape, som vil give ham eftersidning",
+            "Dobby, der har gemt sig i pokalen"
+          ],
+          "correct": 1,
+          "hint": "Det er Harrys allerstørste fjende – ham med de røde øjne og slangenæsen!",
+          "explanation": "Pokalen var en flyttenøgle, der førte Harry direkte hen til en kirkegård, hvor den onde Lord Voldemort vendte tilbage.",
+          "id": "q6"
+        },
+        {
+          "type": "reflection",
+          "question": "Hvis du skulle dyste i en magisk turnering, hvad ville så være din absolutte superkraft eller yndlingstrylleformular? Fortæl [dragenavn] om, hvordan du ville vinde pokalen!",
+          "explanation": "",
+          "id": "q7"
+        }
+      ],
+      "titleKey": "harry potter 4",
+      "id": "q_harry-potter-4"
+    },
+    {
+      "bookTitle": "Harry Potter 5",
+      "author": "J.K. Rowling",
+      "isbn": "",
+      "coverEmoji": "🦅",
+      "description": "Harry Potter skal starte på sit femte år på Hogwarts, men ingen vil tro på, at Voldemort er tilbage. Sammen med sine venner må han kæmpe mod både ministeriet og mørke kræfter. Mon [dragenavn] må være med i Fønixordenen?",
+      "source": "central",
+      "questions": [
+        {
+          "type": "choice",
+          "question": "Hvad hedder den hemmelige gruppe af voksne troldmænd, som kæmper mod Voldemort?",
+          "options": [
+            "Dumbledores Armé",
+            "Fønixordenen",
+            "Dødsgardisterne",
+            "Mysteriedepartementet"
+          ],
+          "correct": 1,
+          "hint": "Gruppen er opkaldt efter Dumbledores seje og flammende fugl!",
+          "explanation": "Det is Fønixordenen! De mødes i al hemmelighed i Sirius Blacks gamle hus for at lægge planer mod de mørke troldmænd.",
+          "id": "q1"
+        },
+        {
+          "type": "choice",
+          "question": "Hvilken streng og lyserød dame bliver sendt fra Ministeriet for Magi for at styre Hogwarts?",
+          "options": [
+            "Dolores Nidkjær Umbridge",
+            "Minerva McGonagall",
+            "Sybil Trelawney",
+            "Rita Rivejern"
+          ],
+          "correct": 0,
+          "hint": "Hun elsker katte og lyserødt tøj, men hun er super ondskabsfuld og giver Harry eftersidninger!",
+          "explanation": "Det er Dolores Nidkjær Umbridge. Hun forbyder eleverne at bruge praktisk magi i timerne, fordi ministeriet er bange for Dumbledore.",
+          "id": "q2"
+        },
+        {
+          "type": "choice",
+          "question": "Da eleverne ikke må lære rigtig magi i timerne, laver de deres egen hemmelige klub. Hvad kalder de den?",
+          "options": [
+            "Gryffindor-klubben",
+            "Snape-patruljen",
+            "Fønix-ungdommen",
+            "Dumbledores Armé"
+          ],
+          "correct": 3,
+          "hint": "De forkorter det ofte til 'DA', og de øver sig i det hemmelige Fornødenhedsrum!",
+          "explanation": "De kalder sig Dumbledores Armé (eller DA). Harry bliver deres lærer, og han lærer dem at kaste svære besværgelser som Patronus-besværgelsen!",
+          "id": "q3"
+        },
+        {
+          "type": "match",
+          "question": "Hjælp [dragenavn] med at parre de magiske things og steder fra bogen med det helt rigtige!",
+          "pairs": [
+            {
+              "left": "Fornødenhedsrummet",
+              "right": "Rummet, der dukker op, når man har brug for det"
+            },
+            {
+              "left": "Mysteriedepartementet",
+              "right": "Stedet i ministeriet, hvor profetien er gemt"
+            },
+            {
+              "left": "Testraler",
+              "right": "Sorte, vingede heste, som kun nogle kan se"
+            }
+          ],
+          "explanation": "Hogwarts og ministeriet er fyldt med vilde hemmeligheder! Fornødenhedsrummet var perfekt til DA's hemmelige træning.",
+          "id": "q4"
+        },
+        {
+          "type": "choice",
+          "question": "Hvilket magisk væsen ville du helst møde i Den Forbudte Skov? [dragenavn] synes selv, de alle sammen lyder lidt vilde!",
+          "options": [
+            "Grawp, som er Hagrids kæmpe store halvbror",
+            "Kentaurerne, som er halvt hest og halvt menneske",
+            "De usynlige og mystiske Testraler",
+            "Jeg ville hellere blive oppe på slottet hos [dragenavn]!"
+          ],
+          "correct": -1,
+          "hint": "",
+          "explanation": "Uanset hvad du vælger, er Skoven et temmelig uhyggeligt sted i denne bog, især når man møder kentaurene eller en kæmpe, der ikke kender sin egen styrke!",
+          "id": "q5"
+        },
+        {
+          "type": "choice",
+          "question": "Hvem mister Harry på tragisk vis under den store kamp i Mysteriedepartementet?",
+          "options": [
+            "Ron Prang",
+            "Sirius Black",
+            "Albus Dumbledore",
+            "Neville Longbottom"
+          ],
+          "correct": 1,
+          "hint": "Det er Harrys elskede gudfar, som falder igennem det mystiske slør.",
+          "explanation": "Det er desværre Sirius Black. Han bliver ramt af en forbandelse fra sin onde kusine Bellatrix Lestrange under den vilde troldmandskamp.",
+          "id": "q6"
+        },
+        {
+          "type": "reflection",
+          "question": "Hvis du skulle lave en hemmelig klub ligesom Dumbledores Armé, hvad skulle jeres klub så hedde, og hvad ville du lære dine venner? Fortæl det til [dragenavn]!",
+          "explanation": "",
+          "id": "q7"
+        }
+      ],
+      "titleKey": "harry potter 5",
+      "id": "q_harry-potter-5"
     }
   ]
 }
