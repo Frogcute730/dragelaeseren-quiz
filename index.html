@@ -16,7 +16,7 @@
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.55;padding:0 14px 80px;}
+    line-height:1.55;padding:0 14px 90px;}
   .wrap{max-width:760px;margin:0 auto;}
   header{text-align:center;padding:28px 12px 10px;}
   header h1{font-size:25px;margin:0 0 4px;}
@@ -28,6 +28,7 @@
   input[type=text],textarea,select{width:100%;padding:9px 11px;border:1px solid var(--border);
     border-radius:9px;font-size:15px;font-family:inherit;background:#fff;color:var(--text);}
   textarea{resize:vertical;min-height:46px;}
+  textarea.mono{font-family:"SF Mono",Consolas,Monaco,monospace;font-size:12.5px;line-height:1.4;}
   button{font-family:inherit;font-size:14px;font-weight:600;border:none;border-radius:10px;
     padding:9px 16px;cursor:pointer;background:var(--green);color:#fff;}
   button.sec{background:var(--purple-l);color:var(--purple);}
@@ -37,11 +38,12 @@
   button:disabled{opacity:.45;cursor:not-allowed;}
   .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
   .spacer{flex:1;}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0;}
   .pill{display:inline-block;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;}
   .pill.ok{background:var(--green-l);color:var(--green-d);}
   .pill.no{background:var(--red-l);color:var(--red);}
   .pill.warn{background:var(--amber-l);color:#9A6500;}
-  .quizrow{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--border);}
+  .quizrow{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--border);}
   .quizrow:last-child{border-bottom:none;}
   .quizrow .emoji{font-size:26px;}
   .quizrow .meta{flex:1;min-width:0;}
@@ -56,17 +58,20 @@
   .callout{border-left:4px solid var(--amber);background:var(--amber-l);border-radius:0 10px 10px 0;
     padding:11px 14px;margin:12px 0;font-size:13.5px;}
   .callout.green{border-left-color:var(--green);background:var(--green-l);}
-  .callout.red{border-left-color:var(--red);background:var(--red-l);}
   .callout.purple{border-left-color:var(--purple);background:var(--purple-l);}
   .callout b{display:block;margin-bottom:3px;}
   code{background:#EEF3F0;padding:1px 6px;border-radius:5px;font-size:13px;}
   a{color:var(--green-d);}
+  ol.steps{margin:6px 0 4px;padding-left:20px;font-size:13.5px;color:var(--text);}
+  ol.steps li{margin:3px 0;}
   .errbox{background:var(--red-l);border:1px solid #F3C6C6;border-radius:10px;padding:10px 13px;margin:10px 0;font-size:13.5px;color:#A02A2A;}
   .errbox ul{margin:5px 0 0;padding-left:18px;}
+  .okbox{background:var(--green-l);border:1px solid #9FE1CB;border-radius:10px;padding:10px 13px;margin:10px 0;font-size:13.5px;color:var(--green-d);}
+  .okbox ul{margin:5px 0 0;padding-left:18px;}
   .hide{display:none;}
   .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);
     background:var(--text);color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;
-    box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:50;max-width:90%;}
+    box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:50;max-width:90%;text-align:center;}
   footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:40px;}
 </style>
 </head>
@@ -110,12 +115,54 @@
   <div class="card hide" id="listCard">
     <div id="quizList"></div>
   </div>
+
   <div class="row" style="margin-top:14px;">
     <button id="newQuizBtn">＋ Ny quiz</button>
+    <button class="sec" id="importBtn">📥 Importér</button>
+    <button class="sec" id="aiBtn">🤖 AI-hjælp</button>
     <span class="spacer"></span>
-    <span id="dirtyPill" class="pill ok hide">ingen ugemte ændringer</span>
+    <span id="dirtyPill" class="pill ok hide">alt er udgivet</span>
     <button id="publishBtn" disabled>Udgiv til databasen</button>
   </div>
+
+  <!-- AI-hjælp -->
+  <div class="card hide" id="aiCard">
+    <h2 style="margin-top:0;">🤖 Få AI til at skrive et udkast</h2>
+    <ol class="steps">
+      <li>Skriv bogens titel.</li>
+      <li>Tryk <b>Kopiér prompt</b>.</li>
+      <li>Sæt den ind i et AI-værktøj (ChatGPT, Claude …) og send.</li>
+      <li>Kopiér AI'ens svar, og sæt det ind nederst her → <b>Brug svaret</b>.</li>
+    </ol>
+    <label for="aiTitle">Bogens titel</label>
+    <input type="text" id="aiTitle" placeholder="fx Os to, OSKAR ... for evigt">
+    <label for="aiPrompt">Prompt (det du giver til AI'en)</label>
+    <textarea id="aiPrompt" class="mono" readonly style="min-height:150px;"></textarea>
+    <div class="row" style="margin-top:8px;"><button id="aiCopyBtn">📋 Kopiér prompt</button></div>
+    <hr>
+    <label for="aiResult">Sæt AI'ens svar ind her</label>
+    <textarea id="aiResult" class="mono" placeholder="Sæt hele AI'ens svar ind her (det starter typisk med { ) …"></textarea>
+    <div id="aiPreview"></div>
+    <div class="row" style="margin-top:8px;">
+      <button id="aiUseBtn">Brug svaret →</button>
+      <button class="ghost" id="aiCloseBtn">Luk</button>
+    </div>
+  </div>
+
+  <!-- Importér -->
+  <div class="card hide" id="importCard">
+    <h2 style="margin-top:0;">📥 Importér en quiz</h2>
+    <p style="font-size:13.5px;color:var(--muted);margin:0 0 4px;">
+      Sæt en quiz-tekst ind (fx fra AI-hjælp, en fil, eller en anden familie). Du ser den FØR den tilføjes.</p>
+    <label for="impText">Sæt quiz-teksten ind her</label>
+    <textarea id="impText" class="mono" placeholder="Sæt teksten ind her …"></textarea>
+    <div id="impPreview"></div>
+    <div class="row" style="margin-top:8px;">
+      <button id="impAddBtn">Tilføj til listen</button>
+      <button class="ghost" id="impCloseBtn">Luk</button>
+    </div>
+  </div>
+
   <div class="callout" style="margin-top:14px;">
     <b>💡 Sådan virker det</b>
     Lav dine ændringer (tilføj/ret/slet). De er først gemt i databasen — og synlige i appen —
@@ -126,6 +173,21 @@
 <!-- ── Editor ────────────────────────────────────────────────────── -->
 <div id="editView" class="hide">
   <h2 id="editTitle">Ny quiz</h2>
+
+  <div class="row" style="margin:-2px 0 8px;">
+    <button class="sec small" id="fillBtn">📥 Indsæt data (udfyld felterne automatisk)</button>
+  </div>
+  <div class="card hide" id="fillCard">
+    <p style="font-size:13.5px;color:var(--muted);margin:0 0 4px;">
+      Sæt en quiz-tekst ind (fx et AI-udkast), så udfyldes felterne nedenfor — så slipper du for at taste det hele.</p>
+    <textarea id="fillText" class="mono" placeholder="Sæt quiz-teksten ind her …"></textarea>
+    <div id="fillPreview"></div>
+    <div class="row" style="margin-top:8px;">
+      <button id="fillApplyBtn">Udfyld felterne</button>
+      <button class="ghost" id="fillCancelBtn">Luk</button>
+    </div>
+  </div>
+
   <div id="editErrors"></div>
   <div class="card">
     <label for="fTitle">Bogtitel *</label>
@@ -176,10 +238,19 @@ function getToken(){ return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(t){ t ? localStorage.setItem(TOKEN_KEY,t) : localStorage.removeItem(TOKEN_KEY); }
 function normalizeTitle(t){ return String(t||"").toLowerCase().replace(/\s+/g," ").trim(); }
 function slug(s){ return normalizeTitle(s).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,40) || "quiz"; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function b64encodeUtf8(str){ return btoa(unescape(encodeURIComponent(str))); }
 function b64decodeUtf8(b64){ return decodeURIComponent(escape(atob(String(b64).replace(/\s/g,"")))); }
 function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg;
   document.body.appendChild(t); setTimeout(()=>t.remove(),3800); }
+async function copyText(text){
+  try{ await navigator.clipboard.writeText(text); return true; }
+  catch(e){
+    try{ const ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select(); const ok=document.execCommand("copy"); ta.remove(); return ok; }
+    catch(_){ return false; }
+  }
+}
 
 // ── validering (samme regler som appen) ──────────────────────────
 function questionErrors(q, n){
@@ -191,7 +262,6 @@ function questionErrors(q, n){
     if(pairs.length<1) e.push(lbl+"match skal have mindst ét par (begge felter udfyldt).");
     return e;
   }
-  // choice
   const opts=(q.options||[]).filter(o=>(o||"").trim());
   if(opts.length<2) e.push(lbl+"multiple choice skal have mindst 2 svarmuligheder.");
   if(q.correct!==-1 && (q.correct<0 || q.correct>=(q.options||[]).length))
@@ -235,7 +305,7 @@ function setDirty(v){
 // ── hente manifest ───────────────────────────────────────────────
 async function loadManifest(){
   $("loadState").classList.remove("hide");
-  $("loadState").textContent="Henter quizzer …";
+  $("loadState").className="callout"; $("loadState").textContent="Henter quizzer …";
   $("listCard").classList.add("hide");
   try{
     const headers={ "Accept":"application/vnd.github+json" };
@@ -273,6 +343,8 @@ function renderList(){
     const s=document.createElement("span");
     s.textContent=(q.questions?q.questions.length:0)+" spørgsmål"+(q.description?" · "+q.description:"");
     meta.appendChild(b); meta.appendChild(s);
+    const exp=document.createElement("button"); exp.className="ghost small"; exp.textContent="📋 Kopiér";
+    exp.title="Kopiér denne quiz som tekst"; exp.onclick=()=>exportQuiz(q);
     const edit=document.createElement("button"); edit.className="sec small"; edit.textContent="Rediger";
     edit.onclick=()=>openEditor(i);
     const del=document.createElement("button"); del.className="danger small"; del.textContent="Slet";
@@ -281,10 +353,109 @@ function renderList(){
         manifest.quizzes.splice(i,1); setDirty(true); renderList();
       }
     };
-    row.appendChild(em); row.appendChild(meta); row.appendChild(edit); row.appendChild(del);
+    row.appendChild(em); row.appendChild(meta); row.appendChild(exp); row.appendChild(edit); row.appendChild(del);
     box.appendChild(row);
   });
 }
+
+// ── EKSPORT (kopiér én quiz) ─────────────────────────────────────
+function exportQuiz(q){
+  const pkg={ schemaVersion:1, version:new Date().toISOString().slice(0,10), quizzes:[q] };
+  copyText(JSON.stringify(pkg,null,2)).then(ok=>
+    toast(ok ? "📋 Kopieret — quizzen ligger nu i udklipsholderen." : "Kunne ikke kopiere automatisk — prøv igen."));
+}
+
+// ── IMPORT (parse + preview) ─────────────────────────────────────
+// Robust: fjerner ```-markeringer + tekst udenom; tager imod pakke, enkelt quiz eller liste.
+function parseQuizText(text){
+  let t=String(text||"").trim();
+  if(!t) return { ok:false, error:"Feltet er tomt — sæt AI'ens/quizens tekst ind først." };
+  t=t.replace(/^```[a-zA-Z]*\s*/,"").replace(/```\s*$/,"").trim();
+  let obj=null;
+  try{ obj=JSON.parse(t); }
+  catch(e){
+    const a=t.indexOf("{"), b=t.lastIndexOf("}");
+    if(a>=0 && b>a){ try{ obj=JSON.parse(t.slice(a,b+1)); }catch(_){ obj=null; } }
+  }
+  if(!obj) return { ok:false, error:"Det ligner ikke en færdig quiz endnu. Fik du HELE svaret med? (Det starter med { og slutter med }.)" };
+  let quizzes;
+  if(Array.isArray(obj)) quizzes=obj;
+  else if(obj && Array.isArray(obj.quizzes)) quizzes=obj.quizzes;
+  else if(obj && obj.bookTitle) quizzes=[obj];
+  else return { ok:false, error:"Fandt ingen quiz i teksten." };
+  const prepared=quizzes.map(prepImported);
+  const good=prepared.filter(q=>quizErrors(q).length===0);
+  if(!good.length) return { ok:false, error:"Quizzen mangler noget (titel eller spørgsmål). Prøv at lave et nyt udkast." };
+  return { ok:true, quizzes:good, skipped:prepared.length-good.length };
+}
+function normQuestion(raw){
+  raw=raw||{};
+  const type=(raw.type==="match"||raw.type==="reflection")?raw.type:"choice";
+  if(type==="match") return { type:"match", question:String(raw.question||""),
+    pairs:(Array.isArray(raw.pairs)?raw.pairs:[]).map(p=>({left:String((p&&p.left)||""),right:String((p&&p.right)||"")})),
+    explanation:String(raw.explanation||"") };
+  if(type==="reflection") return { type:"reflection", question:String(raw.question||""), explanation:String(raw.explanation||"") };
+  return { type:"choice", question:String(raw.question||""),
+    options:(Array.isArray(raw.options)?raw.options:[]).map(o=>String(o)),
+    correct:(typeof raw.correct==="number"?raw.correct:0),
+    hint:String(raw.hint||""), explanation:String(raw.explanation||"") };
+}
+function prepImported(raw){
+  raw=raw||{};
+  const q={ bookTitle:String(raw.bookTitle||"").trim(), coverEmoji:String(raw.coverEmoji||"📕"),
+    description:String(raw.description||"").trim(), source:"central",
+    questions:(Array.isArray(raw.questions)?raw.questions:[]).map(normQuestion) };
+  q.titleKey=normalizeTitle(q.bookTitle);
+  return q;
+}
+function previewHtml(quizzes){
+  return '<div class="okbox">✅ Klar:<ul>'+quizzes.map(q=>{
+    const c={choice:0,match:0,reflection:0};
+    (q.questions||[]).forEach(x=>{ const t=(x.type==="match"||x.type==="reflection")?x.type:"choice"; c[t]++; });
+    const parts=[]; if(c.choice)parts.push(c.choice+" valg"); if(c.match)parts.push(c.match+" match"); if(c.reflection)parts.push(c.reflection+" refleksion");
+    return "<li><b>"+esc(q.bookTitle||"(uden titel)")+"</b> — "+(q.questions?q.questions.length:0)+" spørgsmål ("+parts.join(", ")+")</li>";
+  }).join("")+"</ul></div>";
+}
+function errHtml(msg){ return '<div class="errbox">'+esc(msg)+"</div>"; }
+
+// Tilføj importerede quizzer til listen (med erstat-eller-tilføj ved samme titel).
+function addImportedQuizzes(list){
+  let added=0, replaced=0;
+  list.forEach(q=>{
+    q.questions.forEach((qq,i)=>{ qq.id="q"+(i+1); });
+    const idx=manifest.quizzes.findIndex(x=>normalizeTitle(x.bookTitle)===q.titleKey);
+    if(idx>=0){
+      const replace=confirm('Der findes allerede en quiz til "'+q.bookTitle+'".\n\nTryk OK for at ERSTATTE den.\nTryk Annullér for at tilføje som NY quiz ved siden af.');
+      if(replace){ q.id=manifest.quizzes[idx].id || uniqueId(q.bookTitle); manifest.quizzes[idx]=q; replaced++; }
+      else { q.id=uniqueId(q.bookTitle); manifest.quizzes.push(q); added++; }
+    } else { q.id=uniqueId(q.bookTitle); manifest.quizzes.push(q); added++; }
+  });
+  setDirty(true); renderList();
+  toast("Tilføjet: "+added+(replaced?(" · erstattet: "+replaced):"")+". Husk at trykke Udgiv.");
+}
+
+// ── AI-hjælp ─────────────────────────────────────────────────────
+function buildPrompt(title){
+  const t=(title||"").trim();
+  return 'Du er hjælper til en dansk børne-læseapp. Lav en quiz til bogen nedenfor.\n'
+    +'Svar KUN med JSON (ingen tekst udenom), i dette format:\n\n'
+    +'{\n  "schemaVersion": 1,\n  "quizzes": [\n    {\n'
+    +'      "bookTitle": "'+(t||"[BOGENS TITEL]")+'",\n'
+    +'      "coverEmoji": "📖",\n      "description": "kort beskrivelse af bogen",\n      "source": "central",\n'
+    +'      "questions": [\n'
+    +'        { "type": "choice", "question": "...", "options": ["...","...","...","..."], "correct": 2, "hint": null, "explanation": "..." },\n'
+    +'        { "type": "match", "question": "...", "pairs": [{ "left": "...", "right": "..." }], "explanation": "..." },\n'
+    +'        { "type": "reflection", "question": "Fortæl med dine egne ord ..." }\n'
+    +'      ]\n    }\n  ]\n}\n\n'
+    +'Regler:\n'
+    +'- "correct": tallet (0-3) på det rigtige svar, ELLER -1 hvis alle svar er rigtige (holdningsspørgsmål).\n'
+    +'- Sprog: dansk. Alder: 6-10 år. Tone: en nysgerrig drage.\n'
+    +'- Vil du have dragen til at tale om sig selv ved navn, så skriv [dragenavn] i teksten — appen sætter selv barnets eget dragenavn ind. Skriv ALDRIG et bestemt navn.\n'
+    +'- Antal: 3-4 spørgsmål, gerne ét "match" og ét med "correct": -1.\n\n'
+    +'Bogtitel: '+(t||"[BOGENS TITEL]")+'\n'
+    +'Kort resumé/handling: [SKRIV KORT HVAD BOGEN HANDLER OM]';
+}
+function refreshPrompt(){ $("aiPrompt").value=buildPrompt($("aiTitle").value); }
 
 // ── editor ───────────────────────────────────────────────────────
 function openEditor(index){
@@ -294,6 +465,7 @@ function openEditor(index){
   if(!Array.isArray(draft.questions)||!draft.questions.length) draft.questions=[newQuestion("choice")];
   $("editTitle").textContent = index==null ? "Ny quiz" : "Rediger quiz";
   $("editErrors").innerHTML="";
+  $("fillCard").classList.add("hide"); $("fillText").value=""; $("fillPreview").innerHTML="";
   $("fTitle").value=draft.bookTitle||"";
   $("fEmoji").value=draft.coverEmoji||"";
   $("fDesc").value=draft.description||"";
@@ -306,6 +478,12 @@ function closeEditor(){
   draft=null; editIndex=null;
   $("editView").classList.add("hide");
   $("listView").classList.remove("hide");
+}
+function fillFormFromDraft(){
+  $("fTitle").value=draft.bookTitle||"";
+  $("fEmoji").value=draft.coverEmoji||"📕";
+  $("fDesc").value=draft.description||"";
+  renderQuestions();
 }
 
 function renderQuestions(){
@@ -416,19 +594,17 @@ function saveQuiz(){
   draft.bookTitle=$("fTitle").value.trim();
   draft.coverEmoji=$("fEmoji").value.trim()||"📕";
   draft.description=$("fDesc").value.trim();
-  // ryd tomme svar/par
   draft.questions.forEach(q=>{
-    if(q.type==="choice"){ q.options=q.options.map(o=>o.trim()).filter(o=>o!==""); if(q.options.length<2){/* fanges af validering */} }
+    if(q.type==="choice"){ q.options=q.options.map(o=>o.trim()).filter(o=>o!==""); }
     if(q.type==="match"){ q.pairs=q.pairs.filter(p=>(p.left||"").trim()||(p.right||"").trim()); }
   });
   const errs=quizErrors(draft);
   if(errs.length){
     $("editErrors").innerHTML='<div class="errbox"><b>Ret lige dette først:</b><ul>'+
-      errs.map(e=>"<li>"+e.replace(/</g,"&lt;")+"</li>").join("")+"</ul></div>";
+      errs.map(e=>"<li>"+esc(e)+"</li>").join("")+"</ul></div>";
     window.scrollTo(0,0);
     return;
   }
-  // ids
   draft.id = (editIndex!=null && manifest.quizzes[editIndex] ? manifest.quizzes[editIndex].id : null) || uniqueId(draft.bookTitle);
   if(editIndex==null) draft.id=uniqueId(draft.bookTitle);
   draft.titleKey=normalizeTitle(draft.bookTitle);
@@ -493,18 +669,54 @@ function refreshConn(){
   s.textContent=has?"nøgle gemt":"ingen nøgle";
 }
 
-// ── opsætning ────────────────────────────────────────────────────
+// ── opsætning / wiring ───────────────────────────────────────────
 $("toggleToken").onclick=()=>$("tokenBox").classList.toggle("hide");
 $("saveToken").onclick=()=>{ const v=$("tokenInput").value.trim();
   if(!v){ toast("Indsæt nøglen først."); return; }
   setToken(v); $("tokenInput").value=""; $("tokenBox").classList.add("hide");
   refreshConn(); toast("Nøgle gemt i denne browser."); };
 $("clearToken").onclick=()=>{ setToken(""); refreshConn(); toast("Nøgle fjernet."); };
+
 $("newQuizBtn").onclick=()=>openEditor(null);
+$("publishBtn").onclick=publish;
+
+// AI-hjælp
+$("aiBtn").onclick=()=>{ $("importCard").classList.add("hide");
+  const c=$("aiCard"); c.classList.toggle("hide"); if(!c.classList.contains("hide")){ refreshPrompt(); c.scrollIntoView({behavior:"smooth"}); } };
+$("aiTitle").oninput=refreshPrompt;
+$("aiCopyBtn").onclick=()=>copyText($("aiPrompt").value).then(ok=>toast(ok?"📋 Prompt kopieret — sæt den ind i dit AI-værktøj.":"Kunne ikke kopiere."));
+$("aiUseBtn").onclick=()=>{ const res=parseQuizText($("aiResult").value);
+  $("aiPreview").innerHTML = res.ok ? previewHtml(res.quizzes) : errHtml(res.error);
+  if(res.ok){ addImportedQuizzes(res.quizzes); $("aiResult").value=""; $("aiPreview").innerHTML=""; $("aiCard").classList.add("hide"); } };
+$("aiCloseBtn").onclick=()=>{ $("aiCard").classList.add("hide"); $("aiPreview").innerHTML=""; };
+
+// Importér
+$("importBtn").onclick=()=>{ $("aiCard").classList.add("hide");
+  const c=$("importCard"); c.classList.toggle("hide"); if(!c.classList.contains("hide")) c.scrollIntoView({behavior:"smooth"}); };
+$("impText").oninput=()=>{ const res=parseQuizText($("impText").value);
+  $("impPreview").innerHTML = $("impText").value.trim() ? (res.ok?previewHtml(res.quizzes):errHtml(res.error)) : ""; };
+$("impAddBtn").onclick=()=>{ const res=parseQuizText($("impText").value);
+  if(!res.ok){ $("impPreview").innerHTML=errHtml(res.error); return; }
+  addImportedQuizzes(res.quizzes); $("impText").value=""; $("impPreview").innerHTML=""; $("importCard").classList.add("hide"); };
+$("impCloseBtn").onclick=()=>{ $("importCard").classList.add("hide"); $("impPreview").innerHTML=""; };
+
+// Editor
 $("cancelEditBtn").onclick=()=>{ if(confirm("Kassér ændringerne i denne quiz?")) closeEditor(); };
 $("saveQuizBtn").onclick=saveQuiz;
 $("addQBtn").onclick=()=>{ draft.questions.push(newQuestion("choice")); setDirty(true); renderQuestions(); };
-$("publishBtn").onclick=publish;
+$("fillBtn").onclick=()=>{ const c=$("fillCard"); c.classList.toggle("hide"); $("fillPreview").innerHTML=""; };
+$("fillText").oninput=()=>{ const res=parseQuizText($("fillText").value);
+  $("fillPreview").innerHTML = $("fillText").value.trim() ? (res.ok?previewHtml([res.quizzes[0]]):errHtml(res.error)) : ""; };
+$("fillApplyBtn").onclick=()=>{ const res=parseQuizText($("fillText").value);
+  if(!res.ok){ $("fillPreview").innerHTML=errHtml(res.error); return; }
+  const q=res.quizzes[0];
+  draft.bookTitle=q.bookTitle; draft.coverEmoji=q.coverEmoji||"📕"; draft.description=q.description;
+  draft.questions = q.questions.length ? q.questions : [newQuestion("choice")];
+  fillFormFromDraft(); setDirty(true);
+  $("fillCard").classList.add("hide"); $("fillText").value=""; $("fillPreview").innerHTML="";
+  toast("Felterne er udfyldt — ret det du vil, og tryk Gem quiz."); };
+$("fillCancelBtn").onclick=()=>{ $("fillCard").classList.add("hide"); $("fillPreview").innerHTML=""; };
+
 window.addEventListener("beforeunload",(e)=>{ if(dirty){ e.preventDefault(); e.returnValue=""; } });
 
 refreshConn();
