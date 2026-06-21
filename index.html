@@ -194,6 +194,8 @@
     <input type="text" id="fTitle" placeholder="fx Os to, OSKAR ... for evigt">
     <label for="fAuthor">Forfatter (valgfrit — hjælper appen med at finde den rigtige bog)</label>
     <input type="text" id="fAuthor" placeholder="fx Bjarne Reuter">
+    <label for="fIsbn">ISBN (valgfrit — bogens stregkode-nummer; det sikreste match)</label>
+    <input type="text" id="fIsbn" placeholder="fx 9788740015188" inputmode="numeric">
     <div class="row">
       <div style="width:120px;">
         <label for="fEmoji">Emoji</label>
@@ -284,7 +286,7 @@ function newQuestion(type){
   if(type==="reflection") return { type:"reflection", question:"", explanation:"" };
   return { type:"choice", question:"", options:["",""], correct:0, hint:"", explanation:"" };
 }
-function newQuiz(){ return { bookTitle:"", author:"", coverEmoji:"📕", description:"", source:"central",
+function newQuiz(){ return { bookTitle:"", author:"", isbn:"", coverEmoji:"📕", description:"", source:"central",
   questions:[ newQuestion("choice") ] }; }
 function uniqueId(title){
   const ids=new Set((manifest.quizzes||[]).map(q=>q.id));
@@ -405,6 +407,7 @@ function normQuestion(raw){
 function prepImported(raw){
   raw=raw||{};
   const q={ bookTitle:String(raw.bookTitle||"").trim(), author:String(raw.author||"").trim(),
+    isbn:String(raw.isbn||"").replace(/[^0-9xX]/g,""),
     coverEmoji:String(raw.coverEmoji||"📕"),
     description:String(raw.description||"").trim(), source:"central",
     questions:(Array.isArray(raw.questions)?raw.questions:[]).map(normQuestion) };
@@ -473,6 +476,7 @@ function openEditor(index){
   $("fillCard").classList.add("hide"); $("fillText").value=""; $("fillPreview").innerHTML="";
   $("fTitle").value=draft.bookTitle||"";
   $("fAuthor").value=draft.author||"";
+  $("fIsbn").value=draft.isbn||"";
   $("fEmoji").value=draft.coverEmoji||"";
   $("fDesc").value=draft.description||"";
   renderQuestions();
@@ -488,6 +492,7 @@ function closeEditor(){
 function fillFormFromDraft(){
   $("fTitle").value=draft.bookTitle||"";
   $("fAuthor").value=draft.author||"";
+  $("fIsbn").value=draft.isbn||"";
   $("fEmoji").value=draft.coverEmoji||"📕";
   $("fDesc").value=draft.description||"";
   renderQuestions();
@@ -600,6 +605,7 @@ function appendExtras(card,q,onlyExplanation){
 function saveQuiz(){
   draft.bookTitle=$("fTitle").value.trim();
   draft.author=$("fAuthor").value.trim();
+  draft.isbn=$("fIsbn").value.replace(/[^0-9xX]/g,"");
   draft.coverEmoji=$("fEmoji").value.trim()||"📕";
   draft.description=$("fDesc").value.trim();
   draft.questions.forEach(q=>{
