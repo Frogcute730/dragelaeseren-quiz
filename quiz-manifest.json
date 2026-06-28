@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026-06-21T16:27:12.357Z",
+  "version": "2026-06-29",
   "quizzes": [
     {
       "id": "quiz_tordenklo",
@@ -137,418 +137,1457 @@
       ]
     },
     {
-      "bookTitle": "Dengang Sallys far var dreng (2015)",
-      "author": "Thomas Brunstrøm",
-      "isbn": "",
-      "coverEmoji": "👨",
-      "description": "Sallys far fortæller vilde historier om, hvor sygt hårdt det var, dengang han var barn. Men taler han nu også helt sandt? [dragenavn] vil vildt gerne vide det!",
-      "source": "central",
+      "id": "ai_hundemand5_loppernes_herre",
+      "titleKey": "hundemandloppernesherre",
+      "bookTitle": "Hundemand 5 - Loppernes herre",
+      "author": "Dav Pilkey",
+      "isbn": "9788711901359",
+      "coverEmoji": "🐶",
+      "description": "Den femte Hundemand-bog: katten Pjevs får uvelkommen besøg af Lopperne, og Hundemand må hjælpe med at beskytte lille Pjevs.",
+      "source": "ai",
       "questions": [
         {
+          "id": "q1",
           "type": "choice",
-          "question": "Hvad gør Sallys far, når Sally og hendes bror brokker sig?",
+          "question": "Hvem er den lille killing, som Pjevs vil beskytte i bogen?",
           "options": [
-            "Han giver dem slik og lommepenge",
-            "Han fortæller vilde historier om, da han selv var dreng",
-            "Han læser en kedelig bog højt",
-            "Han tager dem med i biografen"
-          ],
-          "correct": 1,
-          "hint": "Han elsker at fortælle om, hvor hårdt han selv havde det i gamle dage!",
-          "explanation": "Sallys far fortæller altid historier om, at han gik 14 kilometer til skole i bare tæer, og at han kun fik sild i fødselsdagsgave.",
-          "id": "q1"
-        },
-        {
-          "type": "match",
-          "question": "Hjælp [dragenavn] med at parre Sallys fars vilde historier med, hvad han påstår, han gjorde!",
-          "pairs": [
-            {
-              "left": "Turen til skole",
-              "right": "Gik 14 kilometer i bare tæer"
-            },
-            {
-              "left": "Fødselsdagsgave",
-              "right": "Fik kun en enkelt sild"
-            },
-            {
-              "left": "Legetøj",
-              "right": "Legede med en gammel papkasse"
-            }
-          ],
-          "explanation": "Sallys far overdriver helt vildt, når han fortæller om sin barndom!",
-          "id": "q2"
-        },
-        {
-          "type": "choice",
-          "question": "Tror du overhovedet på de ting, som Sallys far fortæller? [dragenavn] synes, det lyder liiiidt skørt!",
-          "options": [
-            "Ja, det var helt sikkert megahårdt i gamle dage!",
-            "Nej, han finder helt sikkert på det hele for at drille!",
-            "Noget af det er nok rigtigt, men han overdriver meget",
-            "Jeg tror faktisk, han glemmer, hvordan det rigtigt var"
-          ],
-          "correct": -1,
-          "hint": "",
-          "explanation": "[dragenavn] synes også, det er svært at vide! Det er sjovt at tænke på, hvad der er sandt, og hvad der er pure opspind.",
-          "id": "q3"
-        },
-        {
-          "type": "reflection",
-          "question": "Fortæl med dine egne ord, hvad din egen far eller mor har fortalt om, dengang DE var børn. Var det lige så skørt som Sallys fars historier? [dragenavn] lytter spændt!",
-          "explanation": "",
-          "id": "q4"
-        }
-      ],
-      "titleKey": "dengang sallys far var dreng (2015)",
-      "id": "q_dengang-sallys-far-var-dreng-2015"
-    },
-    {
-      "bookTitle": "Sallys far har mandeinfluenza (2020)",
-      "author": "Thomas Brunstrøm",
-      "isbn": "",
-      "coverEmoji": "🤒",
-      "description": "Sallys far bliver ramt af den frygtede 'mandeinfluenza'. Han pylrer helt vildt og tror næsten, han skal dø! Mon [dragenavn] kan hjælpe med at finde ud af, om det virkeligt er så slemt?",
-      "source": "central",
-      "questions": [
-        {
-          "type": "choice",
-          "question": "Hvordan opfører Sallys far sig, når han får mandeinfluenza?",
-          "options": [
-            "Han rydder op på hele sit værelse og laver mad",
-            "Han pylrer helt vildt og synes, det er MEGET synd for ham",
-            "Han tager i svømmehallen for at få det bedre",
-            "Han lader som ingenting og tager på arbejde"
-          ],
-          "correct": 1,
-          "hint": "Han synes selv, han er den sygeste person i hele verden!",
-          "explanation": "Når fædre får mandeinfluenza, så pylrer de ofte rigtig meget og vil gerne have, at alle passer på dem.",
-          "id": "q1"
-        },
-        {
-          "type": "match",
-          "question": "Hjælp [dragenavn] med at huske, hvad Sallys far har brug for, når han er 'alvorligt' syg!",
-          "pairs": [
-            {
-              "left": "Placering",
-              "right": "Ligger ynkeligt på sofaen"
-            },
-            {
-              "left": "Opførsel",
-              "right": "Pylrer og klager sig højt"
-            },
-            {
-              "left": "Behandling",
-              "right": "Vil opvartes i hoved og røv"
-            }
-          ],
-          "explanation": "Sallys far gør et kæmpe nummer ud af at være en lille smule forkølet!",
-          "id": "q2"
-        },
-        {
-          "type": "choice",
-          "question": "Hvem tror du, har det hårdest, når Sallys far er syg? [dragenavn] har sin helt egen idé!",
-          "options": [
-            "Sallys far, for han er jo MEGET tæt på at dø!",
-            "Resten af familien, fordi de skal høre på hans brok hele tiden",
-            "Lægen, som skal undersøge ham",
-            "Ingen, det er bare super hyggeligt"
-          ],
-          "correct": -1,
-          "hint": "",
-          "explanation": "Alle svar kan være rigtige! Men de fleste synes nok, det er ret hårdt for Sally og hendes mor at høre på alt det pylr.",
-          "id": "q3"
-        },
-        {
-          "type": "reflection",
-          "question": "Hvordan opfører de voksne hjemme hos dig sig, når de bliver syge? Pylrer de lige så meget som Sallys far, eller er de seje? Fortæl [dragenavn] om det!",
-          "explanation": "",
-          "id": "q4"
-        }
-      ],
-      "titleKey": "sallys far har mandeinfluenza (2020)",
-      "id": "q_sallys-far-har-mandeinfluenza-2020"
-    },
-    {
-      "bookTitle": "Sallys far er en dårlig taber (2020)",
-      "author": "Thomas Brunstrøm",
-      "isbn": "",
-      "coverEmoji": "🎲",
-      "description": "Sallys far ELSKER at vinde, men han er simpelthen den værste taber i hele verden! Når han taber i spil, snyder han eller bliver megasur. Mon [dragenavn] kan lære ham at tabe med et smil?",
-      "source": "central",
-      "questions": [
-        {
-          "type": "choice",
-          "question": "Hvad gør Sallys far, hvis han er ved at tabe i et spil?",
-          "options": [
-            "Han siger 'pyt' og bager en kage til vinderen",
-            "Han begynder at snyde, lave reglerne om eller bliver vildt sur",
-            "Han pakker spillet pænt sammen og går i seng",
-            "Han giver sine brikker væk til Sally"
-          ],
-          "correct": 1,
-          "hint": "Han vil gøre næsten HVD SOM HELST for ikke at tabe!",
-          "explanation": "Sallys far er en rigtig dårlig taber. Han kan finde på at snyde eller råbe, fordi han ikke kan tåle, at børnene vinder over ham.",
-          "id": "q1"
-        },
-        {
-          "type": "match",
-          "question": "Hjælp [dragenavn] med at sætte streg mellem, hvordan man er en god taber, og hvordan Sallys far opfører sig!",
-          "pairs": [
-            {
-              "left": "En god taber",
-              "right": "Siger tillykke til vinderen og smiler"
-            },
-            {
-              "left": "Sallys far",
-              "right": "Bliver sur, snyder og laver reglerne om"
-            },
-            {
-              "left": "En god vinder",
-              "right": "Jubler uden at drille de andre"
-            }
-          ],
-          "explanation": "Det er vigtigt at være en god taber, men Sallys far skal vist øve sig rigtig, rigtig meget endnu!",
-          "id": "q2"
-        },
-        {
-          "type": "choice",
-          "question": "Hvad synes du er det mest irriterende, man kan gøre, når man taber i et spil? [dragenavn] vil vildt gerne høre din mening!",
-          "options": [
-            "At man kaster med brikkerne og spillet",
-            "At man bliver sur og nægter at spille videre",
-            "At man snyder for at vinde til sidst",
-            "At man begynder at græde eller råbe højt"
-          ],
-          "correct": -1,
-          "hint": "",
-          "explanation": "Alle tingene er super irriterende! Det vigtigste er jo bare, at man har det sjovt, når man spiller sammen.",
-          "id": "q3"
-        },
-        {
-          "type": "reflection",
-          "question": "Kender du en, der er en dårlig taber – måske din far, din søster eller dig selv? Fortæl [dragenavn] om en gang, hvor et spil endte med, at en blev megasur!",
-          "explanation": "",
-          "id": "q4"
-        }
-      ],
-      "titleKey": "sallys far er en dårlig taber (2020)",
-      "id": "q_sallys-far-er-en-d-rlig-taber-2020"
-    },
-    {
-      "bookTitle": "Harry Potter 4",
-      "author": "J.K. Rowling",
-      "isbn": "",
-      "coverEmoji": "🏆",
-      "description": "Harry Potter skal gå på sit fjerde år på Hogwarts, og denne gang sker der noget helt vildt: Turneringen i Magisk Trekamp! Mon [dragenavn] og Harry kan klare de farlige udfordringer?",
-      "source": "central",
-      "questions": [
-        {
-          "type": "choice",
-          "question": "Hvilken stor og farlig konkurrence bliver holdt på Hogwarts i denne bog?",
-          "options": [
-            "Det Store Verdensmesterskab i Quidditch",
-            "Turneringen i Magisk Trekamp",
-            "Den Store Bagedyst for Troldmænd",
-            "Hogwarts' Skakmesterskab"
-          ],
-          "correct": 1,
-          "hint": "Det er en gammel turnering, hvor tre forskellige magiske skoler kæmper mod hinanden!",
-          "explanation": "Det er Turneringen i Magisk Trekamp, hvor tre champions normalt dyster, men i år sker der noget mærkeligt, så Harry også skal være med.",
-          "id": "q1"
-        },
-        {
-          "type": "choice",
-          "question": "Hvad hedder den magiske genstand, som vælger, hvem der skal være med i turneringen?",
-          "options": [
-            "Det Magiske Spejl",
-            "Fordelingshatten",
-            "Flammernes Pokal",
-            "Albus Dumbledores tryllestav"
-          ],
-          "correct": 2,
-          "hint": "Den er lavet af træ, og der kommer store, blå flammer op af den!",
-          "explanation": "Det er Flammernes Pokal! Selvom Harry er for ung og ikke har meldt sig, spytter pokalen pludselig hans navn ud.",
-          "id": "q2"
-        },
-        {
-          "type": "match",
-          "question": "Hjælp [dragenavn] med at huske, hvad deltagerne mødte i de tre svære opgaver!",
-          "pairs": [
-            {
-              "left": "Første opgave",
-              "right": "At stjæle et guldæg fra en rigtig drage"
-            },
-            {
-              "left": "Anden opgave",
-              "right": "At svømme dybt ned i Den Sorte Sø"
-            },
-            {
-              "left": "Tredje opgave",
-              "right": "At finde vej gennem en kæmpe, levende labyrint"
-            }
-          ],
-          "explanation": "Deltagerne skulle igennem tre vildt farlige opgaver: først drager, så søen og til sidst den uhyggelige labyrint!",
-          "id": "q3"
-        },
-        {
-          "type": "choice",
-          "question": "Hvilket magisk væsen skulle Harry kæmpe mod i den allerførste opgave? [dragenavn] håber ikke, det var en sød en som mig!",
-          "options": [
-            "En gigantisk edderkop",
-            "En ungarsk takhale-drage",
-            "En trehovedet hund",
-            "En sur kentaur"
-          ],
-          "correct": 1,
-          "hint": "Det er en af de allerfarligste drager, der findes, og den kan spy ild!",
-          "explanation": "Harry trak den ungarske takhale, som er en super farlig drage! Han brugte sin fejekost til at flyve hurtigt udenom den.",
-          "id": "q4"
-        },
-        {
-          "type": "choice",
-          "question": "Hvilken af de tre opgaver i Trekampen tror du, ville være den allerfarligste for dig at prøve? [dragenavn] er spændt på dit svar!",
-          "options": [
-            "At stjæle et æg fra en stor, ildspyende drage",
-            "At svømme rundt under vandet i en time hos dyndfolket",
-            "At gå ind i en mørk labyrint fuld af monstre og gåder",
-            "Jeg synes faktisk, de alle tre lyder lige uhyggelige!"
-          ],
-          "correct": -1,
-          "hint": "",
-          "explanation": "Uanset hvad du vælger, har du helt ret! De voksne troldmænd havde nemlig også lovet, at turneringen ville blive meget sikrere i år, men det passede vist ikke helt.",
-          "id": "q5"
-        },
-        {
-          "type": "choice",
-          "question": "Hvem møder Harry i slutningen af labyrinten, da han rører ved Trekampspokalen?",
-          "options": [
-            "Sirius Black, som vil give ham et kram",
-            "Lord Voldemort, som har fået sin krop tilbage",
-            "Professor Snape, som vil give ham eftersidning",
-            "Dobby, der har gemt sig i pokalen"
-          ],
-          "correct": 1,
-          "hint": "Det er Harrys allerstørste fjende – ham med de røde øjne og slangenæsen!",
-          "explanation": "Pokalen var en flyttenøgle, der førte Harry direkte hen til en kirkegård, hvor den onde Lord Voldemort vendte tilbage.",
-          "id": "q6"
-        },
-        {
-          "type": "reflection",
-          "question": "Hvis du skulle dyste i en magisk turnering, hvad ville så være din absolutte superkraft eller yndlingstrylleformular? Fortæl [dragenavn] om, hvordan du ville vinde pokalen!",
-          "explanation": "",
-          "id": "q7"
-        }
-      ],
-      "titleKey": "harry potter 4",
-      "id": "q_harry-potter-4"
-    },
-    {
-      "bookTitle": "Harry Potter 5",
-      "author": "J.K. Rowling",
-      "isbn": "",
-      "coverEmoji": "🦅",
-      "description": "Harry Potter skal starte på sit femte år på Hogwarts, men ingen vil tro på, at Voldemort er tilbage. Sammen med sine venner må han kæmpe mod både ministeriet og mørke kræfter. Mon [dragenavn] må være med i Fønixordenen?",
-      "source": "central",
-      "questions": [
-        {
-          "type": "choice",
-          "question": "Hvad hedder den hemmelige gruppe af voksne troldmænd, som kæmper mod Voldemort?",
-          "options": [
-            "Dumbledores Armé",
-            "Fønixordenen",
-            "Dødsgardisterne",
-            "Mysteriedepartementet"
-          ],
-          "correct": 1,
-          "hint": "Gruppen er opkaldt efter Dumbledores seje og flammende fugl!",
-          "explanation": "Det is Fønixordenen! De mødes i al hemmelighed i Sirius Blacks gamle hus for at lægge planer mod de mørke troldmænd.",
-          "id": "q1"
-        },
-        {
-          "type": "choice",
-          "question": "Hvilken streng og lyserød dame bliver sendt fra Ministeriet for Magi for at styre Hogwarts?",
-          "options": [
-            "Dolores Nidkjær Umbridge",
-            "Minerva McGonagall",
-            "Sybil Trelawney",
-            "Rita Rivejern"
+            "Lille Pjevs",
+            "En sulten loppe",
+            "En grøn drage",
+            "En vild hest"
           ],
           "correct": 0,
-          "hint": "Hun elsker katte og lyserødt tøj, men hun er super ondskabsfuld og giver Harry eftersidninger!",
-          "explanation": "Det er Dolores Nidkjær Umbridge. Hun forbyder eleverne at bruge praktisk magi i timerne, fordi ministeriet er bange for Dumbledore.",
-          "id": "q2"
+          "explanation": "Ja! Pjevs gør alt for at passe på Lille Pjevs."
         },
         {
+          "id": "q2",
           "type": "choice",
-          "question": "Da eleverne ikke må lære rigtig magi i timerne, laver de deres egen hemmelige klub. Hvad kalder de den?",
+          "question": "Hvem kommer og laver ballade, fordi de vil hævne sig?",
           "options": [
-            "Gryffindor-klubben",
-            "Snape-patruljen",
-            "Fønix-ungdommen",
-            "Dumbledores Armé"
+            "Lopperne",
+            "En flok rumvæsner",
+            "En sur skolelærer",
+            "En kæmpe haj"
           ],
-          "correct": 3,
-          "hint": "De forkorter det ofte til 'DA', og de øver sig i det hemmelige Fornødenhedsrum!",
-          "explanation": "De kalder sig Dumbledores Armé (eller DA). Harry bliver deres lærer, og han lærer dem at kaste svære besværgelser som Patronus-besværgelsen!",
-          "id": "q3"
+          "correct": 0,
+          "explanation": "Nemlig — det er Lopperne, der dukker op!"
         },
         {
+          "id": "q3",
           "type": "match",
-          "question": "Hjælp [dragenavn] med at parre de magiske things og steder fra bogen med det helt rigtige!",
+          "question": "Kan du sætte figurerne sammen med, hvem de er?",
           "pairs": [
             {
-              "left": "Fornødenhedsrummet",
-              "right": "Rummet, der dukker op, når man har brug for det"
+              "left": "Hundemand",
+              "right": "Den seje politihund"
             },
             {
-              "left": "Mysteriedepartementet",
-              "right": "Stedet i ministeriet, hvor profetien er gemt"
+              "left": "Pjevs",
+              "right": "Den snedige kat"
             },
             {
-              "left": "Testraler",
-              "right": "Sorte, vingede heste, som kun nogle kan se"
+              "left": "Lopperne",
+              "right": "Banden der vil hævne sig"
             }
           ],
-          "explanation": "Hogwarts og ministeriet er fyldt med vilde hemmeligheder! Fornødenhedsrummet var perfekt til DA's hemmelige træning.",
-          "id": "q4"
+          "explanation": "Flot! Nu har alle fundet deres plads."
         },
         {
-          "type": "choice",
-          "question": "Hvilket magisk væsen ville du helst møde i Den Forbudte Skov? [dragenavn] synes selv, de alle sammen lyder lidt vilde!",
-          "options": [
-            "Grawp, som er Hagrids kæmpe store halvbror",
-            "Kentaurerne, som er halvt hest og halvt menneske",
-            "De usynlige og mystiske Testraler",
-            "Jeg ville hellere blive oppe på slottet hos [dragenavn]!"
-          ],
-          "correct": -1,
-          "hint": "",
-          "explanation": "Uanset hvad du vælger, er Skoven et temmelig uhyggeligt sted i denne bog, især når man møder kentaurene eller en kæmpe, der ikke kender sin egen styrke!",
-          "id": "q5"
-        },
-        {
-          "type": "choice",
-          "question": "Hvem mister Harry på tragisk vis under den store kamp i Mysteriedepartementet?",
-          "options": [
-            "Ron Prang",
-            "Sirius Black",
-            "Albus Dumbledore",
-            "Neville Longbottom"
-          ],
-          "correct": 1,
-          "hint": "Det er Harrys elskede gudfar, som falder igennem det mystiske slør.",
-          "explanation": "Det er desværre Sirius Black. Han bliver ramt af en forbandelse fra sin onde kusine Bellatrix Lestrange under den vilde troldmandskamp.",
-          "id": "q6"
-        },
-        {
+          "id": "q4",
           "type": "reflection",
-          "question": "Hvis du skulle lave en hemmelig klub ligesom Dumbledores Armé, hvad skulle jeres klub så hedde, og hvad ville du lære dine venner? Fortæl det til [dragenavn]!",
-          "explanation": "",
-          "id": "q7"
+          "question": "Hvad ville du gøre for at beskytte en lille ven, du holder af?",
+          "explanation": "Alle svar er rigtige — det er flot at ville passe på sine venner!"
         }
-      ],
-      "titleKey": "harry potter 5",
-      "id": "q_harry-potter-5"
+      ]
+    },
+    {
+      "id": "ai_hundemand11_loppetjans_under_havet",
+      "titleKey": "hunddemand",
+      "bookTitle": "Hundemand 11 - En loppetjans under havet",
+      "author": "Dav Pilkey",
+      "isbn": "9788727010977",
+      "coverEmoji": "🌊",
+      "description": "Den ellevte Hundemand-bog: Lopperne er tilbage, og denne gang foregår det skøre eventyr dybt nede under havet.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvor foregår det meste af eventyret i denne bog?",
+          "options": [
+            "Dybt nede under havet",
+            "Oppe på månen",
+            "I en mørk jungle",
+            "I en slikbutik"
+          ],
+          "correct": 0,
+          "explanation": "Splasj! Vi skal helt ned under havet med Hundemand."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvem er tilbage og laver ballade igen?",
+          "options": [
+            "Lopperne",
+            "En venlig delfin",
+            "En tryllekunstner",
+            "En ko"
+          ],
+          "correct": 0,
+          "explanation": "Ja — Lopperne giver ikke så let op!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad tror du, man kan møde, hvis man dykker helt ned på bunden af havet?",
+          "explanation": "Alle svar er rigtige — drager elsker at forestille sig livet under vandet!"
+        }
+      ]
+    },
+    {
+      "id": "ai_harry_potter_5_foenixordenen",
+      "titleKey": "harypotter5",
+      "bookTitle": "Harry Potter og Fønixordenen",
+      "author": "J.K. Rowling",
+      "coverEmoji": "🧙",
+      "description": "Den femte bog om Harry Potter: Harry vender tilbage til Hogwarts og starter i hemmelighed en gruppe, der øver forsvar mod mørk magi.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad hedder den hemmelige gruppe, Harry starter for at øve magi med sine venner?",
+          "options": [
+            "Dumbledores Armé",
+            "Slikkepindens Klub",
+            "De Flyvende Koste",
+            "Dragebanden"
+          ],
+          "correct": 0,
+          "explanation": "Ja! De kalder sig Dumbledores Armé."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilken skole går Harry Potter på?",
+          "options": [
+            "Hogwarts",
+            "Nørrebro Skole",
+            "Troldspejderlejren",
+            "Dragehulen"
+          ],
+          "correct": 0,
+          "explanation": "Helt rigtigt — den magiske skole Hogwarts!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Kan du matche de tre venner med noget, der passer til dem?",
+          "pairs": [
+            {
+              "left": "Harry",
+              "right": "Har et lyn-ar i panden"
+            },
+            {
+              "left": "Ron",
+              "right": "Bedste ven med rødt hår"
+            },
+            {
+              "left": "Hermione",
+              "right": "Superklog og elsker bøger"
+            }
+          ],
+          "explanation": "Magisk klaret! Du kender dine Hogwarts-venner."
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvis du fik din egen tryllestav, hvad ville du så allerførst trylle?",
+          "explanation": "Alle svar er rigtige — fantasien må flyve!"
+        }
+      ]
+    },
+    {
+      "id": "ai_harry_potter_5_foenixordenen_alias_harrypotter5",
+      "titleKey": "harrypotter5",
+      "bookTitle": "Harry Potter og Fønixordenen",
+      "author": "J.K. Rowling",
+      "coverEmoji": "🧙",
+      "description": "Den femte bog om Harry Potter: Harry vender tilbage til Hogwarts og starter i hemmelighed en gruppe, der øver forsvar mod mørk magi.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad hedder den hemmelige gruppe, Harry starter for at øve magi med sine venner?",
+          "options": [
+            "Dumbledores Armé",
+            "Slikkepindens Klub",
+            "De Flyvende Koste",
+            "Dragebanden"
+          ],
+          "correct": 0,
+          "explanation": "Ja! De kalder sig Dumbledores Armé."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilken skole går Harry Potter på?",
+          "options": [
+            "Hogwarts",
+            "Nørrebro Skole",
+            "Troldspejderlejren",
+            "Dragehulen"
+          ],
+          "correct": 0,
+          "explanation": "Helt rigtigt — den magiske skole Hogwarts!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Kan du matche de tre venner med noget, der passer til dem?",
+          "pairs": [
+            {
+              "left": "Harry",
+              "right": "Har et lyn-ar i panden"
+            },
+            {
+              "left": "Ron",
+              "right": "Bedste ven med rødt hår"
+            },
+            {
+              "left": "Hermione",
+              "right": "Superklog og elsker bøger"
+            }
+          ],
+          "explanation": "Magisk klaret! Du kender dine Hogwarts-venner."
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvis du fik din egen tryllestav, hvad ville du så allerførst trylle?",
+          "explanation": "Alle svar er rigtige — fantasien må flyve!"
+        }
+      ]
+    },
+    {
+      "id": "ai_harry_potter_5_foenixordenen_alias_haripoter5",
+      "titleKey": "haripoter5",
+      "bookTitle": "Harry Potter og Fønixordenen",
+      "author": "J.K. Rowling",
+      "coverEmoji": "🧙",
+      "description": "Den femte bog om Harry Potter: Harry vender tilbage til Hogwarts og starter i hemmelighed en gruppe, der øver forsvar mod mørk magi.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad hedder den hemmelige gruppe, Harry starter for at øve magi med sine venner?",
+          "options": [
+            "Dumbledores Armé",
+            "Slikkepindens Klub",
+            "De Flyvende Koste",
+            "Dragebanden"
+          ],
+          "correct": 0,
+          "explanation": "Ja! De kalder sig Dumbledores Armé."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilken skole går Harry Potter på?",
+          "options": [
+            "Hogwarts",
+            "Nørrebro Skole",
+            "Troldspejderlejren",
+            "Dragehulen"
+          ],
+          "correct": 0,
+          "explanation": "Helt rigtigt — den magiske skole Hogwarts!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Kan du matche de tre venner med noget, der passer til dem?",
+          "pairs": [
+            {
+              "left": "Harry",
+              "right": "Har et lyn-ar i panden"
+            },
+            {
+              "left": "Ron",
+              "right": "Bedste ven med rødt hår"
+            },
+            {
+              "left": "Hermione",
+              "right": "Superklog og elsker bøger"
+            }
+          ],
+          "explanation": "Magisk klaret! Du kender dine Hogwarts-venner."
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvis du fik din egen tryllestav, hvad ville du så allerførst trylle?",
+          "explanation": "Alle svar er rigtige — fantasien må flyve!"
+        }
+      ]
+    },
+    {
+      "id": "ai_funkle_von_fael_dommedagstunnelen",
+      "titleKey": "funkleivonfæl",
+      "bookTitle": "Funkle von Fæl og Dommedagstunnelen",
+      "author": "Steve Webb",
+      "coverEmoji": "🎢",
+      "description": "Den grådige og fjollede Funkle von Fæl arver en rutsjebane, Dommedagstunnelen, og lægger en skør plan sammen med sin ven Peter Pølsefjæs.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad arver Funkle von Fæl i bogen?",
+          "options": [
+            "En rutsjebane",
+            "En sulten vampyr",
+            "En sejlbåd",
+            "En lille drage"
+          ],
+          "correct": 0,
+          "explanation": "Ja! Han arver rutsjebanen Dommedagstunnelen."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad hedder Funkles gode ven, som er med på den skøre plan?",
+          "options": [
+            "Peter Pølsefjæs",
+            "Freddie Johansen",
+            "Harry Potter",
+            "Pjevs"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — Peter Pølsefjæs! (Freddie Johansen er derimod ham, der prøver at stoppe dem.)"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvem er hvem i historien?",
+          "pairs": [
+            {
+              "left": "Funkle von Fæl",
+              "right": "Den grådige hovedperson"
+            },
+            {
+              "left": "Peter Pølsefjæs",
+              "right": "Funkles gode ven"
+            },
+            {
+              "left": "Dommedagstunnelen",
+              "right": "Rutsjebanen han arver"
+            }
+          ],
+          "explanation": "Flot! Du har styr på hvem der er hvem."
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvis du arvede en hel rutsjebane, hvad ville du så gøre med den?",
+          "explanation": "Alle svar er rigtige — sikke en vild idé at tænke over!"
+        }
+      ]
+    },
+    {
+      "id": "ai_monsterjagten1_ilddragen_ferno",
+      "titleKey": "ilddragenfernos",
+      "bookTitle": "Monsterjagten 1 - Ilddragen Ferno",
+      "author": "Adam Blade",
+      "isbn": "9788762713567",
+      "coverEmoji": "🐉",
+      "description": "Første bog i Monsterjagten-serien: drengen Tom skal befri kongeriget Avantia fra seks vilde monstre — først ilddragen Ferno.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad hedder drengen, der er helt i bogen?",
+          "options": [
+            "Tom",
+            "Malvel",
+            "Ferno",
+            "Hugo"
+          ],
+          "correct": 0,
+          "explanation": "Ja! Tom er den modige helt."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilket monster kæmper Tom imod i denne bog?",
+          "options": [
+            "Ilddragen Ferno",
+            "En kæmpe edderkop",
+            "En havslange",
+            "En sten-trold"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — den flammende ilddrage Ferno!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvem er hvem i historien?",
+          "pairs": [
+            {
+              "left": "Tom",
+              "right": "Den unge helt"
+            },
+            {
+              "left": "Malvel",
+              "right": "Den onde troldmand"
+            },
+            {
+              "left": "Ferno",
+              "right": "Ilddragen"
+            }
+          ],
+          "explanation": "Flot klaret, monsterjæger!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvis du skulle befri et magisk dyr, hvilket ville du så vælge?",
+          "explanation": "Alle svar er rigtige — sikke en modig opgave!"
+        }
+      ]
+    },
+    {
+      "id": "ai_monsterjagten_serie",
+      "titleKey": "monsterjagten",
+      "bookTitle": "Monsterjagten",
+      "author": "Adam Blade",
+      "coverEmoji": "⚔️",
+      "description": "Monsterjagten er en spændende fantasy-serie om drengen Tom, der skal befri kongeriget Avantia fra farlige monstre.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad hedder drengen, der jager monstre i serien?",
+          "options": [
+            "Tom",
+            "Malvel",
+            "Hugo",
+            "Ferno"
+          ],
+          "correct": 0,
+          "explanation": "Ja — det er Tom!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad er Toms store opgave?",
+          "options": [
+            "At befri Avantia fra farlige monstre",
+            "At bage en kage",
+            "At gå i skole",
+            "At finde sin hund"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — at redde kongeriget fra monstrene."
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvilket monster i bogen syntes du var sejest eller mest uhyggeligt?",
+          "explanation": "Alle svar er rigtige — monstre kan være både seje og skræmmende!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du var en monsterjæger som Tom?",
+          "explanation": "Alle svar er rigtige — tænk at være helt!"
+        }
+      ]
+    },
+    {
+      "id": "ai_monsterjagten29_hersker_under_jorden",
+      "titleKey": "herskerunderjordentremae",
+      "bookTitle": "Monsterjagten - Hersker under jorden (Trema)",
+      "author": "Adam Blade",
+      "coverEmoji": "🕳️",
+      "description": "En Monsterjagten-bog hvor Tom må møde monsteret Trema, der hersker dybt under jorden i Avantia.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvor holder monsteret Trema til i bogen?",
+          "options": [
+            "Under jorden",
+            "Oppe i skyerne",
+            "På havets bund",
+            "Inde i en vulkan"
+          ],
+          "correct": 0,
+          "explanation": "Ja — dybt nede under jorden!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvem skal tage kampen op mod monsteret?",
+          "options": [
+            "Tom",
+            "Malvel",
+            "Trema",
+            "Kong Hugo"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — helten Tom!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvem og hvad hører sammen?",
+          "pairs": [
+            {
+              "left": "Tom",
+              "right": "Helten"
+            },
+            {
+              "left": "Trema",
+              "right": "Monsteret under jorden"
+            },
+            {
+              "left": "Avantia",
+              "right": "Kongeriget"
+            }
+          ],
+          "explanation": "Flot!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvordan ville du have det med at gå ned i en mørk hule under jorden?",
+          "explanation": "Alle svar er rigtige — det kræver mod!"
+        }
+      ]
+    },
+    {
+      "id": "ai_billedrengen_billekrig1",
+      "titleKey": "billedrengen",
+      "bookTitle": "Den store billekrig 1 - Billedrengen",
+      "author": "M.G. Leonard",
+      "isbn": "9788711474464",
+      "coverEmoji": "🪲",
+      "description": "Drengen Darkus' far forsvinder, og med hjælp fra den superkloge bille Baxtus må Darkus opklare mysteriet.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvem hjælper Darkus i bogen?",
+          "options": [
+            "En superklog bille ved navn Baxtus",
+            "En talende kat",
+            "En lille drage",
+            "En robot"
+          ],
+          "correct": 0,
+          "explanation": "Ja! Billen Baxtus er en rigtig god ven."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad sker der med Darkus' far?",
+          "options": [
+            "Han forsvinder pludseligt",
+            "Han vinder i lotto",
+            "Han bliver bonde",
+            "Han flytter til månen"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — og det er et stort mysterium!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvem er hvem?",
+          "pairs": [
+            {
+              "left": "Darkus",
+              "right": "Drengen i historien"
+            },
+            {
+              "left": "Baxtus",
+              "right": "Den kloge bille"
+            },
+            {
+              "left": "Lucretia Cutter",
+              "right": "Skurken"
+            }
+          ],
+          "explanation": "Superflot!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Ville du turde have en kæmpe bille som ven? Hvorfor eller hvorfor ikke?",
+          "explanation": "Alle svar er rigtige — biller kan være overraskende seje!"
+        }
+      ]
+    },
+    {
+      "id": "ai_funkle_von_fael_fisken_af_guld",
+      "titleKey": "funkervonfelogfiskenafguld",
+      "bookTitle": "Funkle von Fæl og Fisken af guld",
+      "author": "Steve Webb",
+      "isbn": "9788771069976",
+      "coverEmoji": "🐟",
+      "description": "Funkle von Fæl og vennen Peter Pølsefjæs tror, at guldfisk er lavet af rigtigt guld, og lægger en skør plan for at blive rige.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad tror Funkle og Peter, at guldfisk er lavet af?",
+          "options": [
+            "Guld",
+            "Chokolade",
+            "Plastik",
+            "Vand"
+          ],
+          "correct": 0,
+          "explanation": "Ja — derfor får de deres skøre idé!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvem prøver at redde guldfiskene?",
+          "options": [
+            "Freddie Johansen",
+            "Peter Pølsefjæs",
+            "Funkle von Fæl",
+            "En drage"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — Freddie Johansen vil redde fiskene."
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvem er hvem i historien?",
+          "pairs": [
+            {
+              "left": "Funkle von Fæl",
+              "right": "Den grådige hovedperson"
+            },
+            {
+              "left": "Peter Pølsefjæs",
+              "right": "Funkles ven"
+            },
+            {
+              "left": "Freddie Johansen",
+              "right": "Ham der redder fiskene"
+            }
+          ],
+          "explanation": "Flot!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du troede, du kunne blive rig på en skør idé?",
+          "explanation": "Alle svar er rigtige — det er sjovt at have vilde idéer!"
+        }
+      ]
+    },
+    {
+      "id": "ai_minecraft_mobs_i_oververdenen",
+      "titleKey": "mobsioververdenen",
+      "bookTitle": "Minecraft - Mobs i Oververdenen",
+      "author": "Alvilda",
+      "isbn": "9788741524030",
+      "coverEmoji": "🟩",
+      "description": "To venner tager på eventyr i Minecrafts Oververden, hvor de møder både gode og onde mobs og leder efter et kæledyr til Emma.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad leder vennerne efter i bogen?",
+          "options": [
+            "Et kæledyr til Emma",
+            "En diamant",
+            "En tryllebog",
+            "En kage"
+          ],
+          "correct": 0,
+          "explanation": "Ja — de vil finde det helt rigtige kæledyr til Emma!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad møder de i Oververdenen?",
+          "options": [
+            "Både gode og onde mobs",
+            "Kun fugle",
+            "Ingenting",
+            "Biler"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — der er både venlige og farlige mobs."
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvad hører sammen?",
+          "pairs": [
+            {
+              "left": "Oververdenen",
+              "right": "Stedet de er på eventyr"
+            },
+            {
+              "left": "Mobs",
+              "right": "Væsnerne de møder"
+            },
+            {
+              "left": "Kæledyr",
+              "right": "Det de leder efter til Emma"
+            }
+          ],
+          "explanation": "Flot klaret!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvilken Minecraft-mob ville DU helst have som kæledyr?",
+          "explanation": "Alle svar er rigtige — der er mange sjove mobs at vælge imellem!"
+        }
+      ]
+    },
+    {
+      "id": "ai_minecraft_den_morke_hule",
+      "titleKey": "denmørkehule",
+      "bookTitle": "Minecraft - Den mørke hule",
+      "author": "Alvilda",
+      "coverEmoji": "🕯️",
+      "description": "Emma, Birk og Hyl falder ned i en hule fuld af onde mobs — og det er så mørkt, at de næsten ikke kan se noget!",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvorfor er det svært for vennerne at se mobsene i hulen?",
+          "options": [
+            "Fordi der er helt mørkt",
+            "Fordi de sover",
+            "Fordi der er tåge",
+            "Fordi de har lukkede øjne"
+          ],
+          "correct": 0,
+          "explanation": "Ja — i den mørke hule kan man næsten ikke se noget!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad falder vennerne ned i?",
+          "options": [
+            "En mørk hule fuld af mobs",
+            "En swimmingpool",
+            "En stor sø",
+            "Et højt tårn"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — lige ned i den mørke hule!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Hvad hører sammen?",
+          "pairs": [
+            {
+              "left": "Emma",
+              "right": "En af vennerne"
+            },
+            {
+              "left": "Den mørke hule",
+              "right": "Stedet de falder ned i"
+            },
+            {
+              "left": "Mobs",
+              "right": "De onde væsner i hulen"
+            }
+          ],
+          "explanation": "Flot!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du stod i en helt mørk hule?",
+          "explanation": "Alle svar er rigtige — mørke huler kan være lidt uhyggelige!"
+        }
+      ]
+    },
+    {
+      "id": "ai_sigurd_danmarkshistorie",
+      "titleKey": "danmarkshistore",
+      "bookTitle": "Sigurd fortæller danmarkshistorie",
+      "author": "Sigurd Barrett",
+      "isbn": "9788740063295",
+      "coverEmoji": "🇩🇰",
+      "description": "Sigurd Barrett fortæller Danmarks historie på en sjov måde — fra istiden over vikingerne og helt op til i dag.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad handler bogen om?",
+          "options": [
+            "Danmarks historie fra gammel tid til nu",
+            "En drage der flyver",
+            "En fodboldkamp",
+            "En rejse til månen"
+          ],
+          "correct": 0,
+          "explanation": "Ja — hele Danmarks spændende historie!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilke kendte krigere fra gammel tid kan man læse om?",
+          "options": [
+            "Vikingerne",
+            "Rumvæsner",
+            "Robotter",
+            "Pirater fra månen"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — de seje vikinger!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Sæt tiderne sammen med, hvad de var:",
+          "pairs": [
+            {
+              "left": "Istiden",
+              "right": "Den allerældste tid"
+            },
+            {
+              "left": "Vikingerne",
+              "right": "Krigere fra gammel tid"
+            },
+            {
+              "left": "Konger og dronninger",
+              "right": "Dem der regerede Danmark"
+            }
+          ],
+          "explanation": "Flot — du kender din historie!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvilken tid i Danmarks historie kunne du bedst tænke dig at besøge?",
+          "explanation": "Alle svar er rigtige — sikke en tidsrejse!"
+        }
+      ]
+    },
+    {
+      "id": "ai_sigurd_nordiske_guder",
+      "titleKey": "guder",
+      "bookTitle": "Sigurd fortæller om de nordiske guder",
+      "author": "Sigurd Barrett",
+      "isbn": "9788740010930",
+      "coverEmoji": "⚡",
+      "description": "Sigurd Barrett fortæller historierne om de nordiske guder — fra verdens skabelse til Ragnarok, med Thor, Odin og Freja.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvilken stærk gud svinger en mægtig hammer?",
+          "options": [
+            "Thor",
+            "Freja",
+            "Loke",
+            "En bonde"
+          ],
+          "correct": 0,
+          "explanation": "Ja — Thor med hammeren Mjølner!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad handler bogen om?",
+          "options": [
+            "De nordiske guder og deres historier",
+            "Biler",
+            "Fodbold",
+            "Madlavning"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — masser af gude-historier!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Match guderne med, hvem de er:",
+          "pairs": [
+            {
+              "left": "Thor",
+              "right": "Guden med hammeren"
+            },
+            {
+              "left": "Odin",
+              "right": "Den øverste gud"
+            },
+            {
+              "left": "Freja",
+              "right": "En smuk gudinde"
+            }
+          ],
+          "explanation": "Flot — du kender guderne!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvilken nordisk gud synes du lyder mest spændende?",
+          "explanation": "Alle svar er rigtige — guderne er hver især helt særlige!"
+        }
+      ]
+    },
+    {
+      "id": "ai_kurt_faar_horn",
+      "titleKey": "kurtfårhorn",
+      "bookTitle": "Kurt får horn",
+      "author": "Marie Duedahl",
+      "isbn": "9788740674279",
+      "coverEmoji": "😈",
+      "description": "En sjov lydret Halloween-bog, hvor Kurt får horn og bliver til et lille uhyre.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad får Kurt i bogen?",
+          "options": [
+            "Horn",
+            "Vinger",
+            "En hale",
+            "En hat"
+          ],
+          "correct": 0,
+          "explanation": "Ja — Kurt får horn og bliver et lille uhyre!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilken uhyggelig fest handler bogen om?",
+          "options": [
+            "Halloween",
+            "Fødselsdag",
+            "Jul",
+            "Påske"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — den uhyggelige Halloween!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvis du fik horn til Halloween, hvad ville du så klæde dig ud som?",
+          "explanation": "Alle svar er rigtige — sikke en sjov forklædning!"
+        }
+      ]
+    },
+    {
+      "id": "ai_mo_har_en_haer",
+      "titleKey": "moharenhær",
+      "bookTitle": "Mo har en hær",
+      "author": "Marie Duedahl",
+      "coverEmoji": "🐛",
+      "description": "En sjov lydret bog: det starter med én lille lus i håret — og pludselig er der en hel hær af lus!",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad får Mo en hel hær af i bogen?",
+          "options": [
+            "Lus",
+            "Soldater",
+            "Hunde",
+            "Biler"
+          ],
+          "correct": 0,
+          "explanation": "Ja — en hel hær af lus! Føj og sjovt på samme tid."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvordan starter det hele?",
+          "options": [
+            "Med én lille lus, der bliver til mange",
+            "Med en kæmpe drage",
+            "Med en ny bil",
+            "Med en stor kage"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — én lus bliver hurtigt til rigtig mange!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du fik lus i håret?",
+          "explanation": "Alle svar er rigtige — lus kan godt klare sig væk igen!"
+        }
+      ]
+    },
+    {
+      "id": "ai_mo_har_en_haer_alias_moharen",
+      "titleKey": "moharen",
+      "bookTitle": "Mo har en hær",
+      "author": "Marie Duedahl",
+      "coverEmoji": "🐛",
+      "description": "En sjov lydret bog: det starter med én lille lus i håret — og pludselig er der en hel hær af lus!",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad får Mo en hel hær af i bogen?",
+          "options": [
+            "Lus",
+            "Soldater",
+            "Hunde",
+            "Biler"
+          ],
+          "correct": 0,
+          "explanation": "Ja — en hel hær af lus! Føj og sjovt på samme tid."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvordan starter det hele?",
+          "options": [
+            "Med én lille lus, der bliver til mange",
+            "Med en kæmpe drage",
+            "Med en ny bil",
+            "Med en stor kage"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — én lus bliver hurtigt til rigtig mange!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du fik lus i håret?",
+          "explanation": "Alle svar er rigtige — lus kan godt klare sig væk igen!"
+        }
+      ]
+    },
+    {
+      "id": "ai_mo_har_en_haer_alias_moharhær",
+      "titleKey": "moharhær",
+      "bookTitle": "Mo har en hær",
+      "author": "Marie Duedahl",
+      "coverEmoji": "🐛",
+      "description": "En sjov lydret bog: det starter med én lille lus i håret — og pludselig er der en hel hær af lus!",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad får Mo en hel hær af i bogen?",
+          "options": [
+            "Lus",
+            "Soldater",
+            "Hunde",
+            "Biler"
+          ],
+          "correct": 0,
+          "explanation": "Ja — en hel hær af lus! Føj og sjovt på samme tid."
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvordan starter det hele?",
+          "options": [
+            "Med én lille lus, der bliver til mange",
+            "Med en kæmpe drage",
+            "Med en ny bil",
+            "Med en stor kage"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — én lus bliver hurtigt til rigtig mange!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du gøre, hvis du fik lus i håret?",
+          "explanation": "Alle svar er rigtige — lus kan godt klare sig væk igen!"
+        }
+      ]
+    },
+    {
+      "id": "ai_mi_og_mo_paa_safari",
+      "titleKey": "miogmopåsafari",
+      "bookTitle": "Mi og Mo på safari",
+      "author": "Marie Duedahl",
+      "coverEmoji": "🦁",
+      "description": "Mi og Mo tager på safari, og en løve kommer helt tæt på — bliver der skudt med et gevær eller med et kamera?",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvor tager Mi og Mo hen i bogen?",
+          "options": [
+            "På safari",
+            "I skole",
+            "Til tandlægen",
+            "På månen"
+          ],
+          "correct": 0,
+          "explanation": "Ja — ud på en spændende safari!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilket dyr kommer helt tæt på?",
+          "options": [
+            "En løve",
+            "En mus",
+            "En fisk",
+            "En høne"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — en rigtig løve!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvis du var på safari, hvilket dyr ville du så helst se?",
+          "explanation": "Alle svar er rigtige — der er så mange spændende dyr!"
+        }
+      ]
+    },
+    {
+      "id": "ai_ivan_i_en_kran",
+      "titleKey": "ivanienkran",
+      "bookTitle": "Ivan i en kran",
+      "author": "Marie Duedahl",
+      "coverEmoji": "🏗️",
+      "description": "Ivan sidder højt oppe i en kran og kan se utrolig langt — næsten helt til USA!",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvor er Ivan henne i bogen?",
+          "options": [
+            "I en kran",
+            "I en båd",
+            "I en bil",
+            "Oppe i et træ"
+          ],
+          "correct": 0,
+          "explanation": "Ja — højt oppe i en kran!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad kan Ivan gøre, fordi han er så højt oppe?",
+          "options": [
+            "Se rigtig langt væk",
+            "Sove",
+            "Svømme",
+            "Spise is"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — han kan se næsten helt til USA!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvis du sad højt oppe i en kran, hvad ville du så kigge efter?",
+          "explanation": "Alle svar er rigtige — tænk så langt man kan se!"
+        }
+      ]
+    },
+    {
+      "id": "ai_kanin_i_et_taarn",
+      "titleKey": "kaniniettårn",
+      "bookTitle": "Kanin i et tårn",
+      "author": "Randi Solvang",
+      "coverEmoji": "🐰",
+      "description": "Kanin og katten Balu tager bussen ind til den store by for at komme op i Rundetårn — og det bliver både farligt og sjovt.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvem tager Kanin med ind til byen?",
+          "options": [
+            "Katten Balu",
+            "En hund",
+            "En mus",
+            "En drage"
+          ],
+          "correct": 0,
+          "explanation": "Ja — katten Balu er med!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilket tårn vil de op i?",
+          "options": [
+            "Rundetårn",
+            "Eiffeltårnet",
+            "Et fyrtårn",
+            "Et slotstårn"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — det berømte Rundetårn i København!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du helst kigge efter fra toppen af et højt tårn?",
+          "explanation": "Alle svar er rigtige — der er meget at se oppefra!"
+        }
+      ]
+    },
+    {
+      "id": "ai_en_trio_i_tvis",
+      "titleKey": "entrioitvis",
+      "bookTitle": "En trio i Tvis",
+      "author": "Cristina Gaard",
+      "coverEmoji": "🎺",
+      "description": "En lydret bog om at danne et band — kan man lave en trio med en tuba og en obo?",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad prøver man at lave i bogen?",
+          "options": [
+            "Et band (en trio) med instrumenter",
+            "En kage",
+            "Et fodboldhold",
+            "En tegning"
+          ],
+          "correct": 0,
+          "explanation": "Ja — de vil danne en lille trio!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilke instrumenter er med?",
+          "options": [
+            "En tuba og en obo",
+            "En guitar og trommer",
+            "En harpe",
+            "Et klaver og en fløjte"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — en tuba og en obo!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvilket instrument kunne du bedst tænke dig at spille?",
+          "explanation": "Alle svar er rigtige — al musik er dejlig!"
+        }
+      ]
+    },
+    {
+      "id": "ai_varulvens_skygge",
+      "titleKey": "varulvensskygge",
+      "bookTitle": "Varulvens skygge",
+      "coverEmoji": "🐺",
+      "description": "En sjov og lidt uhyggelig bog om to klodsede kostskoledrenge, der leder efter skolens forsvundne trofæ — med varulve, vikinger, spøgelser og tidsrejser.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad leder de to drenge efter i bogen?",
+          "options": [
+            "Skolens forsvundne trofæ",
+            "En skat i haven",
+            "En tabt hund",
+            "En tryllebog"
+          ],
+          "correct": 0,
+          "explanation": "Ja — de skal finde det forsvundne trofæ!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilke uhyggelige væsner er med i bogen?",
+          "options": [
+            "Varulve og spøgelser",
+            "Enhjørninger",
+            "Feer",
+            "Robotter"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — varulve, spøgelser og endda vikinger!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Kunne du lide, at bogen blandede uhygge og sjov? Hvorfor eller hvorfor ikke?",
+          "explanation": "Alle svar er rigtige — nogle elsker gys, andre ikke!"
+        }
+      ]
+    },
+    {
+      "id": "ai_minecraft_generel",
+      "titleKey": "minecraft",
+      "bookTitle": "Minecraft",
+      "coverEmoji": "🟫",
+      "description": "Quiz om computerspillet Minecraft, hvor man bygger, udforsker og overlever i en verden lavet af blokke.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad kan man især gøre i Minecraft?",
+          "options": [
+            "Bygge og udforske med blokke",
+            "Køre Formel 1",
+            "Lave mad i en restaurant",
+            "Flyve passagerfly"
+          ],
+          "correct": 0,
+          "explanation": "Ja — man bygger og udforsker en hel verden af blokke!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilket væsen er kendt for at snige sig ind og sprænge med et 'BSSS'?",
+          "options": [
+            "En creeper",
+            "En ko",
+            "En høne",
+            "En kanin"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — den grønne creeper, pas på den!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du allerførst bygge i Minecraft?",
+          "explanation": "Alle svar er rigtige — fantasien sætter grænsen!"
+        }
+      ]
+    },
+    {
+      "id": "ai_minecraft_generel_alias_minecraet",
+      "titleKey": "minecraet",
+      "bookTitle": "Minecraft",
+      "coverEmoji": "🟫",
+      "description": "Quiz om computerspillet Minecraft, hvor man bygger, udforsker og overlever i en verden lavet af blokke.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad kan man især gøre i Minecraft?",
+          "options": [
+            "Bygge og udforske med blokke",
+            "Køre Formel 1",
+            "Lave mad i en restaurant",
+            "Flyve passagerfly"
+          ],
+          "correct": 0,
+          "explanation": "Ja — man bygger og udforsker en hel verden af blokke!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvilket væsen er kendt for at snige sig ind og sprænge med et 'BSSS'?",
+          "options": [
+            "En creeper",
+            "En ko",
+            "En høne",
+            "En kanin"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — den grønne creeper, pas på den!"
+        },
+        {
+          "id": "q3",
+          "type": "reflection",
+          "question": "Hvad ville du allerførst bygge i Minecraft?",
+          "explanation": "Alle svar er rigtige — fantasien sætter grænsen!"
+        }
+      ]
+    },
+    {
+      "id": "ai_harry_potter_generel",
+      "titleKey": "harypotter",
+      "bookTitle": "Harry Potter",
+      "author": "J.K. Rowling",
+      "coverEmoji": "⚡",
+      "description": "Quiz om den unge troldmand Harry Potter, der går på troldmandsskolen Hogwarts.",
+      "source": "ai",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "choice",
+          "question": "Hvad er Harry Potter?",
+          "options": [
+            "En ung troldmand",
+            "En fodboldspiller",
+            "En drage",
+            "En konge"
+          ],
+          "correct": 0,
+          "explanation": "Ja — en rigtig troldmand!"
+        },
+        {
+          "id": "q2",
+          "type": "choice",
+          "question": "Hvad hedder troldmandsskolen, Harry går på?",
+          "options": [
+            "Hogwarts",
+            "Nørrebro Skole",
+            "Dragehulen",
+            "Troldlejren"
+          ],
+          "correct": 0,
+          "explanation": "Nemlig — den magiske skole Hogwarts!"
+        },
+        {
+          "id": "q3",
+          "type": "match",
+          "question": "Match Harrys venner med noget, der passer:",
+          "pairs": [
+            {
+              "left": "Ron",
+              "right": "Bedste ven med rødt hår"
+            },
+            {
+              "left": "Hermione",
+              "right": "Superklog og elsker bøger"
+            },
+            {
+              "left": "Harry",
+              "right": "Har et lyn-ar i panden"
+            }
+          ],
+          "explanation": "Magisk klaret!"
+        },
+        {
+          "id": "q4",
+          "type": "reflection",
+          "question": "Hvilken trylleting fra Harry Potter ville du helst eje?",
+          "explanation": "Alle svar er rigtige — der er så meget sej magi at vælge imellem!"
+        }
+      ]
     }
   ]
 }
